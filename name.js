@@ -36,8 +36,7 @@ function convertArray(data) {
             dataObject[i]["創造主"] = dataArray[i][11];
         }
     }
-    outputElement.innerHTML = dataArray;
-    outputElement.innerHTML = dataObject;
+
     document.getElementById("maker").innerHTML = dataObject[1].maker;
 }
    
