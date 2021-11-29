@@ -15,7 +15,7 @@
       <?php
         $row = 1;
         // 読み取り専用でtest.csvを開きます。
-        $f = fopen("./test.csv", "r");
+        $f = fopen("test.csv", "r");
         // test.csvの行を1行ずつ読み込みます。
         while($data = fgetcsv($f)){
             // 読み込んだ結果を表示します。
