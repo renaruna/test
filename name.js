@@ -9,7 +9,7 @@ function getCsvData(dataPath) {
      const response = event.target.responseText;
      convertArray(response);
     });
-    request.open('GET', dataPath, true);
+    request.open('GET', dataPath, false);
     request.send();// HTTPリクエストの発行
 }
    
