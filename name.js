@@ -14,7 +14,7 @@ function getCsvData(dataPath) {
 }
    
 function convertArray(data) {
-    const dataArray = [];
+    var dataArray = [];
     
     const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
@@ -24,7 +24,7 @@ function convertArray(data) {
         
     }
 
-    outputElement.innerHTML = dataArray[1][1];
+    outputElement.innerHTML = dataArray[2][1];
 }
    
 getCsvData('website - scenario.csv');
