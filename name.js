@@ -24,7 +24,7 @@ function convertArray(data) {
         
     }
 
-    outputElement.innerHTML = dataArray;
+    outputElement.innerHTML = dataArray[1][1];
 }
    
 getCsvData('website - scenario.csv');
