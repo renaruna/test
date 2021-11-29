@@ -15,7 +15,7 @@ function getCsvData(dataPath) {
    
 function convertArray(data) {
     const dataArray = [];
-    var dataObject = {};
+    var dataObject = [{},{},{},{}];
     const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
@@ -37,7 +37,7 @@ function convertArray(data) {
         }
     }
 
-    document.getElementById("maker").innerHTML = dataObject[1].maker;
+    document.getElementById("maker").innerHTML = dataObject[1]["maker"];
 }
    
 getCsvData('website - scenario.csv');
