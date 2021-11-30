@@ -1,4 +1,5 @@
 const outputElement = document.getElementById('output_csv');
+const titleElement = document.getElementById('title');
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -37,9 +38,9 @@ function convertArray(data) {
         }
     }
 
-    document.getElementById('output_csv').innerHTML = dataObject.date;
-    document.getElementById('title').innerHTML = dataObject.name;
-    document.getElementById('sakuseisya').innerHTML = dataObject.maker;
+    outputElement.innerHTML = dataObject.date;
+    titleElement.innerHTML = dataObject.name;
+    document.getElementById('maker').innerHTML = dataObject.maker;
     document.getElementById('url').innerHTML = dataObject.url;
     document.getElementById('date').innerHTML = dataObject.date;
     document.getElementById('KP').innerHTML = dataObject.KP;
