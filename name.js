@@ -33,7 +33,7 @@ function convertArray(data) {
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < dataString.length; i++) {
      dataArray[i] = dataString[i].split(',');
-        if(i == 1) {
+        if(i == scenarioID) {
             dataObject.id = dataArray[i][0];
             dataObject.name = dataArray[i][1];
             dataObject.maker = dataArray[i][2];
