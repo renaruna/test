@@ -1,5 +1,5 @@
 const outputElement = document.getElementById('output_csv');
-const idElement = document.getElementById('id');
+const numberElement = document.getElementById('number');
 const titleElement = document.getElementById('title');
 const makerElement = document.getElementById('maker');
 const urlElement = document.getElementById('url');
@@ -50,7 +50,7 @@ function convertArray(data) {
     }
 
     outputElement.textContent = dataObject.date;
-    idElement.textContext = dataObject.id;
+    numberElement.textContext = dataObject.id;
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     urlElement.textContent = dataObject.url;
