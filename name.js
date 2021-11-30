@@ -39,7 +39,7 @@ function convertArray(data) {
 
     outputElement.innerHTML = dataObject.id;
     document.getElementById('title').innerHTML = dataObject.name;
-    document.getElementById('maker').innerHTML = dataObject.maker;
+    document.getElementById('sakuseisya').innerHTML = dataObject.maker;
     document.getElementById('url').innerHTML = dataObject.url;
     document.getElementById('date').innerHTML = dataObject.date;
     document.getElementById('KP').innerHTML = dataObject.KP;
