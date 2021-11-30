@@ -55,11 +55,35 @@ function convertArray(data) {
 }
 
 function display(dataObject) {
+    let memberKP;
+    switch (dataObject.KP) {
+        case "運転手":
+            memberKP = "driver.html";
+            break;
+        case "管理人":
+            memberKP = "manager.html";
+            break;
+        case "上司":
+            memberKP = "boss.html";
+            break;
+        case "スピリチュアルな存在。":
+            memberKP = "spiritual.html";
+            break;
+        case "戦犯":
+            memberKP = "warcrim.html";
+            break;
+        case "創造主":
+            memberKP = "creator.html";
+            break;
+        default:
+            memberKP = "#";  
+    }
+    
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     urlElement.innerHTML =  '<p>シナリオページ</p><a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
     dateElement.textContent = dataObject.date;
-    kpElement.textContent = dataObject.KP;
+    kpElement.innerHTML = '<p>KP</p><a href='+memberKP+'>'+dataObject.KP+'</a>';
     driverElement.textContent = dataObject.driver;
     managerElement.textContent = dataObject.manager;
     bossElement.textContent = dataObject.boss;
