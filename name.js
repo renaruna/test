@@ -1,5 +1,9 @@
 const outputElement = document.getElementById('output_csv');
 const titleElement = document.getElementById('title');
+const makerElement = document.getElementById('maker');
+const urlElement = document.getElementById('url');
+const dateElement = document.getElementById('date');
+const kpElement = document.getElementById('KP');
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -40,10 +44,10 @@ function convertArray(data) {
 
     outputElement.innerHTML = dataObject.date;
     titleElement.innerHTML = dataObject.name;
-    document.getElementById('maker').innerHTML = dataObject.maker;
-    document.getElementById('url').innerHTML = dataObject.url;
-    document.getElementById('date').innerHTML = dataObject.date;
-    document.getElementById('KP').innerHTML = dataObject.KP;
+    makerElement.innerHTML = dataObject.maker;
+    urlElement.innerHTML = dataObject.url;
+    dateElement.innerHTML = dataObject.date;
+    kpElement.innerHTML = dataObject.KP;
 
 }
    
