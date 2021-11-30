@@ -1,9 +1,16 @@
 const outputElement = document.getElementById('output_csv');
+const idElement = document.getElementById('id');
 const titleElement = document.getElementById('title');
 const makerElement = document.getElementById('maker');
 const urlElement = document.getElementById('url');
 const dateElement = document.getElementById('date');
 const kpElement = document.getElementById('KP');
+const driverElement = document.getElementById('driver');
+const manegerElement = document.getElementById('maneger');
+const bossElement = document.getElementById('boss');
+const spiritualElement = document.getElementById('spiritual');
+const warcrimElement = document.getElementById('warcrim');
+const creatorElement = document.getElementById('creator');
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -21,7 +28,7 @@ function getCsvData(dataPath) {
 function convertArray(data) {
     var dataArray = [];
     var dataObject = {};
-    const dataString = data.split('n');// 改行を区切り文字として行を要素とした配列を生成
+    const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < dataString.length; i++) {
@@ -38,16 +45,23 @@ function convertArray(data) {
             dataObject.boss = dataArray[i][8];
             dataObject.spiritual = dataArray[i][9];
             dataObject.warcrim = dataArray[i][10];
-            dataObject.creater = dataArray[i][11];
+            dataObject.creator = dataArray[i][11];
         }
     }
 
     outputElement.textContent = dataObject.date;
+    idElement.textContext = dataObject.id;
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     urlElement.textContent = dataObject.url;
     dateElement.textContent = dataObject.date;
     kpElement.textContent = dataObject.KP;
+    driverElement.textContent = dataObject.driver;
+    manegerElement.textContent = dataObject.maneger;
+    bossElement.textContent = dataObject.boss;
+    spiritualElement.textContent = dataObject.spiritual;
+    warcrimElement.textContent = dataObject.warcrim;
+    creatorElement.textContent = dataObject.creator;
 
 }
    
