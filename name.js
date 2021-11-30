@@ -37,7 +37,7 @@ function convertArray(data) {
         }
     }
 
-    outputElement.innerHTML = dataObject.id;
+    outputElement.innerHTML = dataObject.KP;
     document.getElementById('title').innerHTML = dataObject.name;
     document.getElementById('sakuseisya').innerHTML = dataObject.maker;
     document.getElementById('url').innerHTML = dataObject.url;
