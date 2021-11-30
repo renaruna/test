@@ -10,19 +10,26 @@
       <script>var scenarioID = 3;</script>
       <div>
         <p id="output_csv"></p>
-        <p id="title"></p>
+        <div class="top">
+          <h1 class="title" id="title"></h1>
+        </div>
+        
         <div class="item">
           <p>シナリオ作成者：<label id="maker">_____</label></p>
         </div>
+        
         <div id="url"></div>
-        <div>
-          <p>プレイした日付</p>
+        
+        <div class="item">
+          <p class="item-left">プレイした日付</p>
           <p id="date"></p>
         </div>
-        <div id="KP"></div>
-        <div>
-          <p>CAST</p>
-          <div>
+        
+        <div class="item" id="KP"></div>
+        
+        <div class="item">
+          <p class="item-left">CAST</p>
+          <div class="item-right">
             <p>PC</p>
             <p id="driverPC"></p>
             <p id="managerPC"></p>
