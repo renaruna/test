@@ -1,5 +1,4 @@
 const outputElement = document.getElementById('output_csv');
-
 const titleElement = document.getElementById('title');
 const makerElement = document.getElementById('maker');
 const urlElement = document.getElementById('url');
@@ -53,7 +52,7 @@ function convertArray(data) {
 
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
-    urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
+    urlElement.innerHTML =  '<p>シナリオページ</p><a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
     dateElement.textContent = dataObject.date;
     kpElement.textContent = dataObject.KP;
     driverElement.textContent = dataObject.driver;
