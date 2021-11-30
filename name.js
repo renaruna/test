@@ -37,7 +37,7 @@ function convertArray(data) {
         }
     }
 
-    outputElement.innerHTML = dataArray[2][1];
+    outputElement.innerHTML = dataObject.id;
     document.getElementById('title').innerHTML = dataObject.name;
     document.getElementById('maker').innerHTML = dataObject.maker;
     document.getElementById('url').innerHTML = dataObject.url;
