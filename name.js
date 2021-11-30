@@ -4,12 +4,12 @@ const makerElement = document.getElementById('maker');
 const urlElement = document.getElementById('url');
 const dateElement = document.getElementById('date');
 const kpElement = document.getElementById('KP');
-const driverElement = document.getElementById('driver');
-const managerElement = document.getElementById('manager');
-const bossElement = document.getElementById('boss');
-const spiritualElement = document.getElementById('spiritual');
-const warcrimElement = document.getElementById('warcrim');
-const creatorElement = document.getElementById('creator');
+const driverElement = document.getElementById('driverPC');
+const managerElement = document.getElementById('managerPC');
+const bossElement = document.getElementById('bossPC');
+const spiritualElement = document.getElementById('spiritualPC');
+const warcrimElement = document.getElementById('warcrimPC');
+const creatorElement = document.getElementById('creatorPC');
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
