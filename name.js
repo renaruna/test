@@ -21,7 +21,7 @@ function getCsvData(dataPath) {
 function convertArray(data) {
     var dataArray = [];
     var dataObject = {};
-    const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
+    const dataString = data.split('n');// 改行を区切り文字として行を要素とした配列を生成
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < dataString.length; i++) {
