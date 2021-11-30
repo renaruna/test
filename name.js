@@ -84,12 +84,24 @@ function display(dataObject) {
     urlElement.innerHTML =  '<p>シナリオページ</p><a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
     dateElement.textContent = dataObject.date;
     kpElement.innerHTML = '<p>KP</p><a href='+memberKP+'>'+dataObject.KP+'</a>';
-    driverElement.textContent = dataObject.driver;
-    managerElement.textContent = dataObject.manager;
-    bossElement.textContent = dataObject.boss;
-    spiritualElement.textContent = dataObject.spiritual;
-    warcrimElement.textContent = dataObject.warcrim;
-    creatorElement.textContent = dataObject.creator;
-}
+    if (dataObject.driver) {
+        driverElement.innerHTML = '<p><a href="'+dataObject.driver+'.html">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a></p>';
+    }
+    if (dataObject.manager) {
+        managerElement.innerHTML = '<p><a href="'+dataObject.manager+'.html">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a></p>';
+    }
+    if (dataObject.boss) {
+        bossElement.innerHTML = '<p><a href="'+dataObject.boss+'.html">'+dataObject.boss+'</a>：<a href="boss.html">上司</a></p>';
+    }
+    if (dataObject.spiritual) {
+        spiritualElement.innerHTML = '<p><a href="'+dataObject.spiritual+'.html">'+dataObject.spiritual+'</a>：<a href="spiritual.html">スピリチュアルな存在。</a></p>';
+    }
+    if (dataObject.warcrim) {
+        warcrimElement.innerHTML = '<p><a href="'+dataObject.warcrim+'.html">'+dataObject.warcrim+'</a>：<a href="warcrim.html">戦犯</a></p>';
+    }
+    if (dataObject.creator) {
+        creatorElement.innerHTML = '<p><a href="'+dataObject.creator+'.html">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a></p>';
+    }
+    }
    
 getCsvData('website - scenario.csv');
