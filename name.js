@@ -43,7 +43,7 @@ function convertArray(data) {
     }
 
     outputElement.innerHTML = dataObject.date;
-    titleElement.innerHTML = dataObject.name;
+    titleElement.textContent = dataObject.name;
     makerElement.innerHTML = dataObject.maker;
     urlElement.innerHTML = dataObject.url;
     dateElement.innerHTML = dataObject.date;
