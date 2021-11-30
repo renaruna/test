@@ -25,8 +25,8 @@ function getCsvData(dataPath) {
 }
    
 function convertArray(data) {
-    var dataArray = [];
-    var dataObject = {};
+    const dataArray = [];
+    const dataObject = {};
     const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
@@ -45,11 +45,16 @@ function convertArray(data) {
             dataObject.spiritual = dataArray[i][9];
             dataObject.warcrim = dataArray[i][10];
             dataObject.creator = dataArray[i][11];
+            break;
         }
     }
-
+    
+    display(dataObject);
     outputElement.textContent = dataObject.id;
 
+}
+
+function display(dataObject) {
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     urlElement.innerHTML =  '<p>シナリオページ</p><a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
@@ -61,7 +66,6 @@ function convertArray(data) {
     spiritualElement.textContent = dataObject.spiritual;
     warcrimElement.textContent = dataObject.warcrim;
     creatorElement.textContent = dataObject.creator;
-
 }
    
 getCsvData('website - scenario.csv');
