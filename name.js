@@ -5,7 +5,7 @@ const urlElement = document.getElementById('url');
 const dateElement = document.getElementById('date');
 const kpElement = document.getElementById('KP');
 const driverElement = document.getElementById('driver');
-const manegerElement = document.getElementById('maneger');
+const managerElement = document.getElementById('manager');
 const bossElement = document.getElementById('boss');
 const spiritualElement = document.getElementById('spiritual');
 const warcrimElement = document.getElementById('warcrim');
@@ -40,7 +40,7 @@ function convertArray(data) {
             dataObject.date = dataArray[i][4];
             dataObject.KP = dataArray[i][5];
             dataObject.driver = dataArray[i][6];
-            dataObject.maneger = dataArray[i][7];
+            dataObject.manager = dataArray[i][7];
             dataObject.boss = dataArray[i][8];
             dataObject.spiritual = dataArray[i][9];
             dataObject.warcrim = dataArray[i][10];
@@ -56,7 +56,7 @@ function convertArray(data) {
     dateElement.textContent = dataObject.date;
     kpElement.textContent = dataObject.KP;
     driverElement.textContent = dataObject.driver;
-    manegerElement.textContent = dataObject.maneger;
+    managerElement.textContent = dataObject.manager;
     bossElement.textContent = dataObject.boss;
     spiritualElement.textContent = dataObject.spiritual;
     warcrimElement.textContent = dataObject.warcrim;
