@@ -42,12 +42,12 @@ function convertArray(data) {
         }
     }
 
-    outputElement.innerHTML = dataObject.date;
+    outputElement.textContent = dataObject.date;
     titleElement.textContent = dataObject.name;
-    makerElement.innerHTML = dataObject.maker;
-    urlElement.innerHTML = dataObject.url;
-    dateElement.innerHTML = dataObject.date;
-    kpElement.innerHTML = dataObject.KP;
+    makerElement.textContent = dataObject.maker;
+    urlElement.textContent = dataObject.url;
+    dateElement.textContent = dataObject.date;
+    kpElement.textContent = dataObject.KP;
 
 }
    
