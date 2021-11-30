@@ -53,7 +53,7 @@ function convertArray(data) {
 
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
-    
+    urlElement.textContent = dataObject.url;
     dateElement.textContent = dataObject.date;
     kpElement.textContent = dataObject.KP;
     driverElement.textContent = dataObject.driver;
