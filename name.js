@@ -38,7 +38,11 @@ function convertArray(data) {
     }
 
     outputElement.innerHTML = dataArray[2][1];
-    document.getElementById('maker').innerHTML = dataObject.maneger;
+    document.getElementById('title').innerHTML = dataObject.name;
+    document.getElementById('maker').innerHTML = dataObject.maker;
+    document.getElementById('url').innerHTML = dataObject.url;
+    document.getElementById('date').innerHTML = dataObject.date;
+    document.getElementById('KP').innerHTML = dataObject.KP;
 
 }
    
