@@ -12,61 +12,10 @@
       <p id="title"></p>
       <p id="url"></p>
       <p id="date"></p>
-      <script>
-        var memID = "管理人";
-      </script>
-      <script src="test.js"></script>
-
+      
       <script src="name.js"></script>
       
-      <h1>JavaScriptで関数に引数として値を渡す方法</h1>
-        <p>
-        最初の"a"の値：<label id="a_1">_____</label>
-        </p>
-        <p>
-        最初の"b"オブジェクトの値：<label id="b_1">_____</label>
-        </p>
-        <p>
-        関数に入ってきた"a"の値：<label id="a_2">_____</label>
-        </p>
-        <p>
-        関数に入ってきた"b"オブジェクトの値：<label id="b_2">_____</label>
-        </p>
-        <p>
-        関数で変更した"a"の値：<label id="a_3">_____</label>
-        </p>
-        <p>
-        関数で変更した"b"オブジェクトの値：<label id="b_3">_____</label>
-        </p>
-        <p>
-        関数からもどて来た後の"a"の値：<label id="a_4">_____</label>
-        </p>
-        <p>
-        関数からもどて来た後の"b"オブジェクトの値：<label id="b_4">_____</label>
-        </p>
-        <script type="text/javascript">
-          let a = "test"
-          let b = {text:"test2"}
-          
-          function testfunc(ia,ib){
-          document.getElementById("a_2").innerHTML = ia;
-          document.getElementById("b_2").innerHTML = ib.text;
-          ia = "cheng"
-          ib.text = "cheng2"
-          document.getElementById("a_3").innerHTML = ia;
-          document.getElementById("b_3").innerHTML = ib.text;
-          
-          }
-          
-          document.getElementById("a_1").innerHTML = a;
-          document.getElementById("b_1").innerHTML = b.text;
-          
-          testfunc(a,b)
-          
-          document.getElementById("a_4").innerHTML = a;
-          document.getElementById("b_4").innerHTML = b.text;
-          
-        </script>
+      
           
   </body>
   </html>
