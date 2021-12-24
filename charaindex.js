@@ -9,6 +9,18 @@ const makerElement = document.getElementById('maker');
 const hpElement = document.getElementById('hp');
 const mpElement = document.getElementById('mp');
 const sanElement = document.getElementById('san');
+const dbElement = document.getElementById('db');
+const strElement = document.getElementById('str');
+const conElement = document.getElementById('con');
+const powElement = document.getElementById('pow');
+const dexElement = document.getElementById('dex');
+const appElement = document.getElementById('app');
+const sizElement = document.getElementById('siz');
+const intElement = document.getElementById('int');
+const eduElement = document.getElementById('edu');
+const skillElement = document.getElementById('skill');
+const settingElement = document.getElementById('setting');
+const scenarioElement = document.getElementById('scenario');
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -37,12 +49,27 @@ function convertArray(data) {
             dataObject.age = dataArray[i][3];
             dataObject.sex = dataArray[i][4];
             dataObject.job = dataArray[i][5];
-            dataObject.member = dataArray[i][6];
-            dataObject.color = dataArray[i][7];
-            dataObject.maker = dataArray[i][8];
-            dataObject.hp = dataArray[i][9];
-            dataObject.mp = dataArray[i][10];
-            dataObject.san = dataArray[i][11];
+            dataObject.member = "管理人";
+            dataObject.color = dataArray[i][6];
+        
+            dataObject.hp = dataArray[i][7];
+            dataObject.mp = dataArray[i][8];
+            dataObject.san = dataArray[i][9];
+            dataObject.db = dataArray[i][10];
+            dataObject.str = dataArray[i][11];
+        dataObject.con = dataArray[i][12];
+        dataObject.pow = dataArray[i][13];
+        dataObject.dex = dataArray[i][14];
+        dataObject.app = dataArray[i][15];
+        dataObject.siz = dataArray[i][16];
+        dataObject.int = dataArray[i][17];
+        dataObject.edu = dataArray[i][18];
+        
+        dataObject.skill = dataArray[i][19];
+        dataObject.setting = dataArray[i][20];
+        dataObject.scenario = dataArray[i][21];
+        
+            dataObject.maker = dataArray[i][28];
             break;
      
     }
@@ -61,9 +88,23 @@ function display(dataObject) {
     memberElement.textContent = dataObject.member;
     colorElement.textContent = dataObject.color;
     makerElement.textContent = dataObject.maker;
+    
     hpElement.textContent = dataObject.hp;
     mpElement.textContent = dataObject.mp;
     sanElement.textContent = dataObject.san;
+    dbElement.textContent = dataObject.db;
+    strElement.textContent = dataObject.str;
+    conElement.textContent = dataObject.con;
+    powElement.textContent = dataObject.pow;
+    dexElement.textContent = dataObject.dex;
+    appElement.textContent = dataObject.app;
+    sizElement.textContent = dataObject.siz;
+    intElement.textContent = dataObject.int;
+    eduElement.textContent = dataObject.edu;
+    
+    skillElement.textContent = dataObject.skill;
+    settingElement.textContent = dataObject.setting;
+    scenarioElement.textContent = dataObject.scenario;
   
 }
    
