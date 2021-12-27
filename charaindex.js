@@ -103,8 +103,8 @@ function display(dataObject) {
     eduElement.textContent = dataObject.edu;
     
     skillElement.innerHTML = '<p>技能値</p><p>'+change(dataObject.skill,"$","</p><p>")+'</p>';
-    settingElement.textContent = dataObject.setting;
-    scenarioElement.textContent = dataObject.scenario;
+    settingElement.innerHTML = change(dataObject.setting,"$","<br>");
+    scenarioElement.innerHTML = '<p>技能値</p><p>'+change(dataObject.scenario,"$","</p><p>")+'</p>';
 }
 
 function change(text, a, b) {
