@@ -9,7 +9,7 @@ th, td {
   
 th {
     text-align: right;
-    text-align: top;
+    vertical-align: top;
 }
   
 td {
