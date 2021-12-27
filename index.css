@@ -5,12 +5,11 @@ table {
   
 th, td {
     padding: 5px 15px;
+    vertical-align: top;
 }
   
 th {
-    padding-top: 5px;
     text-align: right;
-    vertical-align: top;
 }
   
 td {
