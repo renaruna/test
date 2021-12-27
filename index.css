@@ -1,0 +1,18 @@
+table {
+    width: 500px;
+    max-width: 100%;
+}
+  
+th, td {
+    padding: 5px 15px;
+}
+  
+th {
+    text-align: right;
+    text-align: top;
+}
+  
+td {
+    text-align: left;
+}
+  
