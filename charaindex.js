@@ -102,10 +102,18 @@ function display(dataObject) {
     intElement.textContent = dataObject.int;
     eduElement.textContent = dataObject.edu;
     
-    skillElement.textContent = dataObject.skill;
+    skillElement.textContent = change(dataObject.skill,"$","\n");
     settingElement.textContent = dataObject.setting;
     scenarioElement.textContent = dataObject.scenario;
-  
+}
+
+function change(text, a, b) {
+  let i = 0;
+  let length = text.length;
+  for (i=0; i < length; i++) {
+    text = text.replace(a,b); 
+  }
+  return text;
 }
    
 getCsvData('character-index - manager.csv');
