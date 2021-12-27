@@ -102,7 +102,7 @@ function display(dataObject) {
     intElement.textContent = dataObject.int;
     eduElement.textContent = dataObject.edu;
     
-    skillElement.innerHTML = change(dataObject.skill,"$","<br>");
+    skillElement.innerHTML = change(dataObject.skill,"$","</p><p>");
     settingElement.textContent = dataObject.setting;
     scenarioElement.textContent = dataObject.scenario;
 }
