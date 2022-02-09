@@ -21,6 +21,12 @@ const eduElement = document.getElementById('edu');
 const skillElement = document.getElementById('skill');
 const settingElement = document.getElementById('setting');
 const scenarioElement = document.getElementById('scenario');
+const driverElement = document.getElementById('driver');
+const managerElement = document.getElementById('manager');
+const bossElement = document.getElementById('boss');
+const spiritualElement = document.getElementById('spiritual');
+const warcrimElement = document.getElementById('warcrim');
+const creatorElement = document.getElementById('creator');
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -43,6 +49,7 @@ function convertArray(data) {
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < dataString.length; i++) {
      dataArray[i] = dataString[i].split(',');
+        if(i == charaID) {
             dataObject.id = dataArray[i][0];
             dataObject.name = dataArray[i][1];
             dataObject.hiraname = dataArray[i][2];
@@ -57,21 +64,28 @@ function convertArray(data) {
             dataObject.san = dataArray[i][9];
             dataObject.db = dataArray[i][10];
             dataObject.str = dataArray[i][11];
-        dataObject.con = dataArray[i][12];
-        dataObject.pow = dataArray[i][13];
-        dataObject.dex = dataArray[i][14];
-        dataObject.app = dataArray[i][15];
-        dataObject.siz = dataArray[i][16];
-        dataObject.int = dataArray[i][17];
-        dataObject.edu = dataArray[i][18];
+            dataObject.con = dataArray[i][12];
+            dataObject.pow = dataArray[i][13];
+            dataObject.dex = dataArray[i][14];
+            dataObject.app = dataArray[i][15];
+            dataObject.siz = dataArray[i][16];
+            dataObject.int = dataArray[i][17];
+            dataObject.edu = dataArray[i][18];
+
+            dataObject.skill = dataArray[i][19];
+            dataObject.setting = dataArray[i][20];
+            dataObject.scenario = dataArray[i][21];
         
-        dataObject.skill = dataArray[i][19];
-        dataObject.setting = dataArray[i][20];
-        dataObject.scenario = dataArray[i][21];
-        
+            dataObject.driverCom = dataArray[i][22];
+            dataObject.managerCom = dataArray[i][23];
+            dataObject.bossCom = dataArray[i][24];
+            dataObject.spiritualCom = dataArray[i][25];
+            dataObject.warcrimCom = dataArray[i][26];
+            dataObject.creatorCom = dataArray[i][27];
+            
             dataObject.maker = dataArray[i][28];
             break;
-     
+        }
     }
     
     display(dataObject);
@@ -105,6 +119,13 @@ function display(dataObject) {
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
     scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
+    
+    driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
+    managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
+    bossElement.innerHTML = change(dataObject.bossCom,"$","<br>");
+    spiritualElement.innerHTML = change(dataObject.spiritualCom,"$","<br>");
+    warcrimElement.innerHTML = change(dataObject.warcrimCom,"$","<br>");
+    creatorElement.innerHTML = change(dataObject.creatorCom,"$","<br>");
 }
 
 function change(text, a, b) {
