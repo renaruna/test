@@ -41,6 +41,9 @@ function getCsvData(dataPath) {
     });
     request.open('GET', dataPath, true);
     request.send();// HTTPリクエストの発行
+
+    display();
+
 }
    
 function convertArray(data) {
@@ -145,4 +148,4 @@ function change(text, a, b) {
 }
    
 getCsvData('character-index - manager.csv');
-display();
+
