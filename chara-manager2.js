@@ -92,7 +92,7 @@ function convertArray(data) {
         }
     }
     
-    display();
+    
 
 }
 
@@ -145,3 +145,4 @@ function change(text, a, b) {
 }
    
 getCsvData('character-index - manager.csv');
+display();
