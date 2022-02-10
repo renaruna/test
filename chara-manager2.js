@@ -28,6 +28,7 @@ const spiritualElement = document.getElementById('spiritual');
 const warcrimElement = document.getElementById('warcrim');
 const creatorElement = document.getElementById('creator');
 const dataArray = [];
+const dataObject = {};
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -44,7 +45,7 @@ function getCsvData(dataPath) {
    
 function convertArray(data) {
     
-    const dataObject = {};
+    
     const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
@@ -91,11 +92,11 @@ function convertArray(data) {
         }
     }
     
-    display(dataObject);
+    display();
 
 }
 
-function display(dataObject) {
+function display() {
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     hiranameElement.textContent = dataObject.hiraname;
@@ -130,6 +131,9 @@ function display(dataObject) {
     warcrimElement.innerHTML = change(dataObject.warcrimCom,"$","<br>");
     creatorElement.innerHTML = change(dataObject.creatorCom,"$","<br>");
 }
+
+function search(thing) {
+｝
 
 function change(text, a, b) {
   let i = 0;
