@@ -28,71 +28,113 @@ const spiritualElement = document.getElementById('spiritual');
 const warcrimElement = document.getElementById('warcrim');
 const creatorElement = document.getElementById('creator');
 
+const charaArray = [];
+const scenarioArray = [];
+
 //CSVファイルを読み込む
-function getCsvData(dataPath) {
+function getCsvDataChara(dataPath) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
     // レスポンスが返ってきたらconvertArray()を呼ぶ	
     request.addEventListener('load', (event) => {
-     const response = event.target.responseText;
-     convertArray(response);
+        const response = event.target.responseText;
+        convertArrayChara(response);
     });
     request.open('GET', dataPath, true);
     request.send();// HTTPリクエストの発行
 }
    
-function convertArray(data) {
-    const dataArray = [];
-    const dataObject = {};
+//行列
+function convertArrayChara(data) {
     const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < dataString.length; i++) {
-     dataArray[i] = dataString[i].split(',');
-        if(i == charaID) {
-            dataObject.id = dataArray[i][0];
-            dataObject.name = dataArray[i][1];
-            dataObject.hiraname = dataArray[i][2];
-            dataObject.age = dataArray[i][3];
-            dataObject.sex = dataArray[i][4];
-            dataObject.job = dataArray[i][5];
-            dataObject.member = "管理人";
-            dataObject.color = dataArray[i][6];
-        
-            dataObject.hp = dataArray[i][7];
-            dataObject.mp = dataArray[i][8];
-            dataObject.san = dataArray[i][9];
-            dataObject.db = dataArray[i][10];
-            dataObject.str = dataArray[i][11];
-            dataObject.con = dataArray[i][12];
-            dataObject.pow = dataArray[i][13];
-            dataObject.dex = dataArray[i][14];
-            dataObject.app = dataArray[i][15];
-            dataObject.siz = dataArray[i][16];
-            dataObject.int = dataArray[i][17];
-            dataObject.edu = dataArray[i][18];
+        charaArray[i] = dataString[i].split(',');
+    }
+}
 
-            dataObject.skill = dataArray[i][19];
-            dataObject.setting = dataArray[i][20];
-            dataObject.scenario = dataArray[i][21];
+//
+function getCsvDataScenario(dataPath) {
+    const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
+    
+    // レスポンスが返ってきたらconvertArray()を呼ぶ	
+    request.addEventListener('load', (event) => {
+        const response = event.target.responseText;
+        convertArrayScenario(response);
+    });
+    request.open('GET', dataPath, true);
+    request.send();// HTTPリクエストの発行
+}
+
+function convertArrayScenario(data) {
+    const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
+    
+    // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+    for (let i = 0; i < dataString.length; i++) {
+        scenarioArray[i] = dataString[i].split(',');
+    }
+    
+}
+
+//ページに表示
+function display() {
+    let i;
+    const dataObject = {};
+    const array;
+    const scenario;
+    let text;
+
+    for(i = 0; i < charaArray.length; i++){
+        if(i == charaID) {
+            dataObject.id = charaArray[i][0];
+            dataObject.name = charaArray[i][1];
+            dataObject.hiraname = charaArray[i][2];
+            dataObject.age = charaArray[i][3];
+            dataObject.sex = charaArray[i][4];
+            dataObject.job = charaArray[i][5];
+            dataObject.member = "管理人";
+            dataObject.color = charaArray[i][6];
         
-            dataObject.driverCom = dataArray[i][22];
-            dataObject.managerCom = dataArray[i][23];
-            dataObject.bossCom = dataArray[i][24];
-            dataObject.spiritualCom = dataArray[i][25];
-            dataObject.warcrimCom = dataArray[i][26];
-            dataObject.creatorCom = dataArray[i][27];
+            dataObject.hp = charaArray[i][7];
+            dataObject.mp = charaArray[i][8];
+            dataObject.san = charaArray[i][9];
+            dataObject.db = charaArray[i][10];
+            dataObject.str = charaArray[i][11];
+            dataObject.con = charaArray[i][12];
+            dataObject.pow = charaArray[i][13];
+            dataObject.dex = charaArray[i][14];
+            dataObject.app = charaArray[i][15];
+            dataObject.siz = charaArray[i][16];
+            dataObject.int = charaArray[i][17];
+            dataObject.edu = charaArray[i][18];
+
+            dataObject.skill = charaArray[i][19];
+            dataObject.setting = charaArray[i][20];
+            dataObject.scenario = charaArray[i][21];
+        
+            dataObject.driverCom = charaArray[i][22];
+            dataObject.managerCom = charaArray[i][23];
+            dataObject.bossCom = charaArray[i][24];
+            dataObject.spiritualCom = charaArray[i][25];
+            dataObject.warcrimCom = charaArray[i][26];
+            dataObject.creatorCom = charaArray[i][27];
             
-            dataObject.maker = dataArray[i][28];
+            dataObject.maker = charaArray[i][28];
             break;
         }
     }
-    
-    display(dataObject);
 
-}
+    //参加したシナリオの名前の配列
+    array = dataObject.scenario.split('$');
+    //シナリオ名からそのシナリオのファイル名を検索
+    for (i = 0; i < array.length; i++) {
+        scenario[i] = search(array[i]);
+    }
+    for (i = 0; i < array.length; i++) {
+        text += '<a href="'+scenario[i]+'">'+array[i]+'</a><br>';
+    }
 
-function display(dataObject) {
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     hiranameElement.textContent = dataObject.hiraname;
@@ -118,7 +160,7 @@ function display(dataObject) {
     
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
-    scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
+    scenarioElement.innerHTML = text;
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
     managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
@@ -128,6 +170,16 @@ function display(dataObject) {
     creatorElement.innerHTML = change(dataObject.creatorCom,"$","<br>");
 }
 
+//シナリオ名が引数。シナリオ行列からファイル名を探す
+function search(scenario){
+    for (let i=0; i < scenarioArray.length; i++) {
+        if (scenarioArray[i][1].indexOf(scenario) !== -1) {
+            return scenarioArray[i][12];
+        }
+    }
+}
+
+//文字をaからbに置き換える
 function change(text, a, b) {
   let i = 0;
   let length = text.length;
@@ -137,4 +189,6 @@ function change(text, a, b) {
   return text;
 }
    
-getCsvData('character-index - manager.csv');
+getCsvDataChara('character-index - manager.csv');
+getCsvDataScenario('website - scenario.csv');
+display();
