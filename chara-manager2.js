@@ -50,6 +50,8 @@ function convertArray(data) {
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < dataString.length; i++) {
      dataArray[i] = dataString[i].split(',');
+    }
+    for (let i = 0; i < dataString.length; i++) {
         if(i == charaID) {
             dataObject.id = dataArray[i][0];
             dataObject.name = dataArray[i][1];
