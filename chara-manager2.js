@@ -27,6 +27,7 @@ const bossElement = document.getElementById('boss');
 const spiritualElement = document.getElementById('spiritual');
 const warcrimElement = document.getElementById('warcrim');
 const creatorElement = document.getElementById('creator');
+const dataArray = [];
 
 //CSVファイルを読み込む
 function getCsvData(dataPath) {
@@ -42,7 +43,7 @@ function getCsvData(dataPath) {
 }
    
 function convertArray(data) {
-    const dataArray = [];
+    
     const dataObject = {};
     const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     
