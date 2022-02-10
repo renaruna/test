@@ -28,8 +28,8 @@ const spiritualElement = document.getElementById('spiritual');
 const warcrimElement = document.getElementById('warcrim');
 const creatorElement = document.getElementById('creator');
 
-const charaArray = [];
-const scenarioArray = [];
+var charaArray = [];
+var scenarioArray = [];
 
 //CSVファイルを読み込む
 function getCsvDataChara(dataPath) {
