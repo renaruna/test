@@ -111,7 +111,7 @@ function display() {
         driverElement.innerHTML = '<a href="'+dataObject.driver+'.html">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a>';
     }
     if (dataObject.manager) {
-        managerElement.innerHTML = '<a href="'+search(dataObject.driver)+'">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a>';
+        managerElement.innerHTML = '<a href="'+search(dataObject.manager)+'">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a>';
     }
     if (dataObject.boss) {
         bossElement.innerHTML = '<a href="'+dataObject.boss+'.html">'+dataObject.boss+'</a>：<a href="boss.html">上司</a>';
