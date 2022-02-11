@@ -146,7 +146,7 @@ function display() {
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
     scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
-    charaIDelem.textContent = search(dataObject.name);
+    charaIDelem.textContent = 2;
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
     managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
