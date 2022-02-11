@@ -111,7 +111,7 @@ function display() {
         driverElement.innerHTML = '<a href="'+dataObject.driver+'.html">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a>';
     }
     if (dataObject.manager) {
-        managerElement.innerHTML = '<a href="'+dataObject.manager+'.html">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a>';
+        managerElement.innerHTML = '<a href="'+search(dataObject.driver)+'">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a>';
     }
     if (dataObject.boss) {
         bossElement.innerHTML = '<a href="'+dataObject.boss+'.html">'+dataObject.boss+'</a>：<a href="boss.html">上司</a>';
@@ -126,5 +126,15 @@ function display() {
         creatorElement.innerHTML = '<a href="'+dataObject.creator+'.html">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
     }
 }
+
+function search(chara) {
+    for (let i=0; i < cArray.length; i++) {
+        if (cArray[i][1].indexOf(chara) !== -1) {
+            return cArray[i][29];
+        }
+    }
+    return "#";
+}
+
    
 getCsvData('character-index - manager.csv', 'website - scenario.csv');
