@@ -1,5 +1,6 @@
 const nameElement = document.getElementById('name');
 const hiranameElement = document.getElementById('hiraname');
+const charaIDelem = document.getElementById('charaID');
 const ageElement = document.getElementById('age');
 const sexElement = document.getElementById('sex');
 const jobElement = document.getElementById('job');
@@ -144,7 +145,8 @@ function display() {
     
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
-    scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>")+search(dataObject.name);
+    scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
+    charaIDelem.textContent = search(dataObject.name);
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
     managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
