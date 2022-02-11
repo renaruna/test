@@ -1,6 +1,6 @@
 const nameElement = document.getElementById('name');
 const hiranameElement = document.getElementById('hiraname');
-const charaIDelem = document.getElementById('charaID');
+const chaidElement = document.getElementById('chaid');
 const ageElement = document.getElementById('age');
 const sexElement = document.getElementById('sex');
 const jobElement = document.getElementById('job');
@@ -118,6 +118,7 @@ function display() {
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     hiranameElement.textContent = dataObject.hiraname;
+    chaidElement.textContent = sArray[1][1];
     ageElement.textContent = dataObject.age;
     sexElement.textContent = dataObject.sex;
     jobElement.textContent = dataObject.job;
@@ -141,7 +142,7 @@ function display() {
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
     scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
-    charaIDelem.textContent = sArray[1][1];
+    
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
     managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
