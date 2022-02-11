@@ -118,7 +118,7 @@ function display() {
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     hiranameElement.textContent = dataObject.hiraname;
-    chaidElement.textContent = sArray[1][1];
+    chaidElement.textContent = sArray[1][12];
     ageElement.textContent = dataObject.age;
     sexElement.textContent = dataObject.sex;
     jobElement.textContent = dataObject.job;
