@@ -28,10 +28,11 @@ const spiritualElement = document.getElementById('spiritual');
 const warcrimElement = document.getElementById('warcrim');
 const creatorElement = document.getElementById('creator');
 const dataArray = [];
+const sArray = [];
 const dataObject = {};
 
 //CSVファイルを読み込む
-function getCsvData(dataPath) {
+function getCsvData(dataPath[]) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
     // レスポンスが返ってきたらconvertArray()を呼ぶ	
@@ -42,20 +43,22 @@ function getCsvData(dataPath) {
     request.open('GET', dataPath, true);
     request.send();// HTTPリクエストの発行
 
-    display();
+    
 
 }
    
-function convertArray(data) {
-    
-    
-    const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
+function convertArray(data[]) {
+    const dataString1 = data[0].split('\n');// 改行を区切り文字として行を要素とした配列を生成
+    const dataString2 = data[1].split('\n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (let i = 0; i < dataString.length; i++) {
-     dataArray[i] = dataString[i].split(',');
+    for (let i = 0; i < dataString1.length; i++) {
+     dataArray[i] = dataString1[i].split(',');
     }
-    for (let i = 0; i < dataString.length; i++) {
+    for (let i = 0; i < dataString2.length; i++) {
+     sArray[i] = dataString2[i].split(',');
+    }
+    for (let i = 0; i < dataString1.length; i++) {
         if(i == charaID) {
             dataObject.id = dataArray[i][0];
             dataObject.name = dataArray[i][1];
@@ -95,7 +98,7 @@ function convertArray(data) {
         }
     }
     
-    
+    display();
 
 }
 
@@ -147,5 +150,5 @@ function change(text, a, b) {
   return text;
 }
    
-getCsvData('character-index - manager.csv');
+getCsvData('character-index - manager.csv', 'website - scenario.csv');
 
