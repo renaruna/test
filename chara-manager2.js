@@ -114,7 +114,17 @@ function convertArray(dataC, dataS) {
 }
 
 function display() {    
-    
+    let text = [];
+    var array = {}
+    var html = "";
+    //参加したシナリオの名前の配列
+    array = dataObject.scenario.split('$');
+    for (i = 0; i < array.length; i++) {
+        text[i] = search(array[i]);
+    }
+    for (i = 0; i < array.length; i++) {
+        html += '<a href="'+text[i]+'">'+array[i]+'</a><br>';
+    }
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     hiranameElement.textContent = dataObject.hiraname;
@@ -141,7 +151,7 @@ function display() {
     
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
-    scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
+    scenarioElement.innerHTML = html;
     
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
@@ -152,12 +162,13 @@ function display() {
     creatorElement.innerHTML = change(dataObject.creatorCom,"$","<br>");
 }
 
-function search(thing) {
-    for (let i=0; i < cArray.length; i++) {
-        if (cArray[i][1].indexOf(thing) !== -1) {
-            return cArray[i][0];
+function search(scenario) {
+    for (let i=0; i < sArray.length; i++) {
+        if (sArray[i][1].indexOf(scenario) !== -1) {
+            return sArray[i][12];
         }
     }
+    return "#";
 }
 
 function change(text, a, b) {
