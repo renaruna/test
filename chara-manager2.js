@@ -113,12 +113,7 @@ function convertArray(dataC, dataS) {
 
 }
 
-function display() {
-    let i;
-    const array;
-    const scenario;
-    let text;
-    
+function display() {    
     
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
@@ -146,7 +141,7 @@ function display() {
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
     scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
-    charaIDelem.textContent = 2;
+    charaIDelem.textContent = sArray[1][1];
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
     managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
