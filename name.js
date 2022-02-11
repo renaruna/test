@@ -10,51 +10,74 @@ const bossElement = document.getElementById('bossPC');
 const spiritualElement = document.getElementById('spiritualPC');
 const warcrimElement = document.getElementById('warcrimPC');
 const creatorElement = document.getElementById('creatorPC');
+const npcElement = document.getElementById('NPC');
+const cArray = [];
+const sArray = [];
+const dataObject = {};
 
 //CSVファイルを読み込む
-function getCsvData(dataPath) {
+function getCsvData(dataPathC, dataPathS) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
     // レスポンスが返ってきたらconvertArray()を呼ぶ	
     request.addEventListener('load', (event) => {
      const response = event.target.responseText;
-     convertArray(response);
+     getCsvS(response, dataPathS);
     });
-    request.open('GET', dataPath, true);
+    request.open('GET', dataPathC, true);
     request.send();// HTTPリクエストの発行
+
 }
    
-function convertArray(data) {
-    const dataArray = [];
-    const dataObject = {};
-    const dataString = data.split('\n');// 改行を区切り文字として行を要素とした配列を生成
+function getCsvS(data, dataPathS) {
+    const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
+    
+    // レスポンスが返ってきたらconvertArray()を呼ぶ	
+    request.addEventListener('load', (event) => {
+     const response = event.target.responseText;
+     convertArray(data, response);
+    });
+    request.open('GET', dataPathS, true);
+    request.send();// HTTPリクエストの発行
+}
+
+function convertArray(dataC, dataS) {
+    const dataStringC = dataC.split('\n');// 改行を区切り文字として行を要素とした配列を生成
+    const dataStringS = dataS.split('\n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (let i = 0; i < dataString.length; i++) {
-     dataArray[i] = dataString[i].split(',');
-        if(i == scenarioID) {
-            dataObject.id = dataArray[i][0];
-            dataObject.name = dataArray[i][1];
-            dataObject.maker = dataArray[i][2];
-            dataObject.url = dataArray[i][3];
-            dataObject.date = dataArray[i][4];
-            dataObject.KP = dataArray[i][5];
-            dataObject.driver = dataArray[i][6];
-            dataObject.manager = dataArray[i][7];
-            dataObject.boss = dataArray[i][8];
-            dataObject.spiritual = dataArray[i][9];
-            dataObject.warcrim = dataArray[i][10];
-            dataObject.creator = dataArray[i][11];
+    for (let i = 0; i < dataStringC.length; i++) {
+     cArray[i] = dataStringC[i].split(',');
+    }
+    for (let i = 0; i < dataStringS.length; i++) {
+     sArray[i] = dataStringS[i].split(',');
+    }
+    for (let i = 0; i < dataStringS.length; i++) {
+       if(i == scenarioID) {
+            dataObject.id = sArray[i][0];
+            dataObject.name = sArray[i][1];
+            dataObject.maker = sArray[i][2];
+            dataObject.url = sArray[i][3];
+            dataObject.date = sArray[i][4];
+            dataObject.KP = sArray[i][5];
+            dataObject.driver = sArray[i][6];
+            dataObject.manager = sArray[i][7];
+            dataObject.boss = sArray[i][8];
+            dataObject.spiritual = sArray[i][9];
+            dataObject.warcrim = sArray[i][10];
+            dataObject.creator = sArray[i][11];
+           
+            dataObject.NPC = sArray[i][13];
             break;
         }
     }
     
-    display(dataObject);
+    display();
     outputElement.textContent = dataObject.id;
-
 }
 
-function display(dataObject) {
+
+function display() {
     let memberKP;
     switch (dataObject.KP) {
         case "運転手":
@@ -81,27 +104,27 @@ function display(dataObject) {
     
     titleElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
-    urlElement.innerHTML =  '<p>シナリオページ</p><a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
+    urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
     dateElement.textContent = dataObject.date;
-    kpElement.innerHTML = '<p>KP</p><a href='+memberKP+'>'+dataObject.KP+'</a>';
+    kpElement.innerHTML = '<a href='+memberKP+'>'+dataObject.KP+'</a>';
     if (dataObject.driver) {
-        driverElement.innerHTML = '<p><a href="'+dataObject.driver+'.html">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a></p>';
+        driverElement.innerHTML = '<a href="'+dataObject.driver+'.html">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a>';
     }
     if (dataObject.manager) {
-        managerElement.innerHTML = '<p><a href="'+dataObject.manager+'.html">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a></p>';
+        managerElement.innerHTML = '<a href="'+dataObject.manager+'.html">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a>';
     }
     if (dataObject.boss) {
-        bossElement.innerHTML = '<p><a href="'+dataObject.boss+'.html">'+dataObject.boss+'</a>：<a href="boss.html">上司</a></p>';
+        bossElement.innerHTML = '<a href="'+dataObject.boss+'.html">'+dataObject.boss+'</a>：<a href="boss.html">上司</a>';
     }
     if (dataObject.spiritual) {
-        spiritualElement.innerHTML = '<p><a href="'+dataObject.spiritual+'.html">'+dataObject.spiritual+'</a>：<a href="spiritual.html">スピリチュアルな存在。</a></p>';
+        spiritualElement.innerHTML = '<a href="'+dataObject.spiritual+'.html">'+dataObject.spiritual+'</a>：<a href="spiritual.html">スピリチュアルな存在。</a>';
     }
     if (dataObject.warcrim) {
-        warcrimElement.innerHTML = '<p><a href="'+dataObject.warcrim+'.html">'+dataObject.warcrim+'</a>：<a href="warcrim.html">戦犯</a></p>';
+        warcrimElement.innerHTML = '<a href="'+dataObject.warcrim+'.html">'+dataObject.warcrim+'</a>：<a href="warcrim.html">戦犯</a>';
     }
     if (dataObject.creator) {
-        creatorElement.innerHTML = '<p><a href="'+dataObject.creator+'.html">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a></p>';
+        creatorElement.innerHTML = '<a href="'+dataObject.creator+'.html">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
     }
-    }
+}
    
-getCsvData('website - scenario.csv');
+getCsvData('character-index - manager.csv', 'website - scenario.csv');
