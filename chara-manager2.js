@@ -113,6 +113,12 @@ function convertArray(dataC, dataS) {
 }
 
 function display() {
+    let i;
+    const array;
+    const scenario;
+    let text;
+    
+    
     nameElement.textContent = dataObject.name;
     makerElement.textContent = dataObject.maker;
     hiranameElement.textContent = dataObject.hiraname;
@@ -138,7 +144,7 @@ function display() {
     
     skillElement.innerHTML = change(dataObject.skill,"$","<br>");
     settingElement.innerHTML = change(dataObject.setting,"$","<br>");
-    scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>");
+    scenarioElement.innerHTML = change(dataObject.scenario,"$","<br>")+search(dataObject.name);
     
     driverElement.innerHTML = change(dataObject.driverCom,"$","<br>");
     managerElement.innerHTML = change(dataObject.managerCom,"$","<br>");
@@ -149,6 +155,11 @@ function display() {
 }
 
 function search(thing) {
+    for (let i=0; i < cArray.length; i++) {
+        if (cArray[i][1].indexOf(thing) !== -1) {
+            return cArray[i][0];
+        }
+    }
 }
 
 function change(text, a, b) {
