@@ -314,7 +314,7 @@ function display() {
             kpHtml += kp1sentence + "</p><p>";
         }    
         kpElement.innerHTML = kpHtml.slice(0, -7);
-        kpElement.innerHTML = '<a href='+memberKP+'>'+dataObject.KP+'</a>';
+        
         //PC
         if (dataObject.driver) {
             driverElement.innerHTML = '<a href="'+search(drArray, dataObject.driver)+'">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a>';
