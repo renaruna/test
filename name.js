@@ -175,66 +175,23 @@ function display() {
             creatorElement.innerHTML = '<a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
         }
     } else {
-        //シナリオ共通
-        titleElement.textContent = sArray[scenarioID][1];//name,title
-        makerElement.textContent = sArray[scenarioID][2];//maker
-        urlElement.innerHTML =  '<a href="'+sArray[scenarioID][3]+'" >'+sArray[scenarioID][3]+'</a>';//url,page
-        
-        let text = "";
-        let j = 0
-            let dataObject = {};
-            dataObject.id = sArray[scenarioID + j][0];
-            dataObject.date = sArray[scenarioID + j][4];
-            dataObject.KP = sArray[scenarioID + j][5];
-            dataObject.driver = sArray[scenarioID + j][6];
-            dataObject.manager = sArray[scenarioID + j][7];
-            dataObject.boss = sArray[scenarioID + j][8];
-            dataObject.spiritual = sArray[scenarioID + j][9];
-            dataObject.warcrim = sArray[scenarioID + j][10];
-            dataObject.creator = sArray[scenarioID + j][11];
-            //KP
-            let kpHTML = kpText(dataObject.KP);
-            //PC
-            let driver = "";
-            let manager = "";
-            let boss = "";
-            let spiritual = "";
-            let warcrim = "";
-            let creator = "";
-            if (dataObject.driver) {
-                driver = '<p><a href="'+search(drArray, dataObject.driver)+'">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a></p>';
-            }
-            if (dataObject.manager) {
-                manager = '<p><a href="'+search(mnArray, dataObject.manager)+'">'+dataObject.manager+'</a>：<a href="manager.html">管理人</a></p>';
-            }
-            if (dataObject.boss) {
-                boss = '<p><a href="'+search(bsArray, dataObject.boss)+'">'+dataObject.boss+'</a>：<a href="boss.html">上司</a></p>';
-            }
-            if (dataObject.spiritual) {
-                spiritual = '<p><a href="'+search(spArray, dataObject.spiritual)+'">'+dataObject.spiritual+'</a>：<a href="spiritual.html">スピリチュアルな存在。</a></p>';
-            }
-            if (dataObject.warcrim) {
-                warcrim = '<p><a href="'+search(wcArray, dataObject.warcrim)+'">'+dataObject.warcrim+'</a>：<a href="warcrim.html">戦犯</a></p>';
-            }
-            if (dataObject.creator) {
-                creator = '<p><a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a></p>';
-            }
-            //HTML
-            text += '<h2>第'+(j+1)+'陣</h2></div><div class="item"><table><tr><th>プレイした日付</th><td><p>'+dataObject.date+'</p></td></tr><tr><th>KP</th><td><p>'+kpHtml+'</p></td></tr><tr><th>CAST</th><td><div><p>PC</p>'+driver+manager+boss+spiritual+warcrim+creator+'</div></td></tr></table></div><div>';
-        
-        text += '<h2>第'+jin+'陣</h2>';
-        jinElement.innerHTML = text;
-        let dataObject = {};
-        dataObject.id = sArray[scenarioID + jin - 1][0];
-        dataObject.date = sArray[scenarioID + jin - 1][4];
-        dataObject.KP = sArray[scenarioID + jin - 1][5];
-        dataObject.driver = sArray[scenarioID + jin - 1][6];
-        dataObject.manager = sArray[scenarioID + jin - 1][7];
-        dataObject.boss = sArray[scenarioID + jin - 1][8];
-        dataObject.spiritual = sArray[scenarioID + jin - 1][9];
-        dataObject.warcrim = sArray[scenarioID + jin - 1][10];
-        dataObject.creator = sArray[scenarioID + jin - 1][11];
-        //date
+        var dataObject = {};
+        dataObject.id = sArray[scenarioID][0];
+        dataObject.name = sArray[scenarioID][1];
+        dataObject.maker = sArray[scenarioID][2];
+        dataObject.url = sArray[scenarioID][3];
+        dataObject.date = sArray[scenarioID][4];
+        dataObject.KP = sArray[scenarioID][5];
+        dataObject.driver = sArray[scenarioID][6];
+        dataObject.manager = sArray[scenarioID][7];
+        dataObject.boss = sArray[scenarioID][8];
+        dataObject.spiritual = sArray[scenarioID][9];
+        dataObject.warcrim = sArray[scenarioID][10];
+        dataObject.creator = sArray[scenarioID][11];
+                
+        titleElement.textContent = dataObject.name;
+        makerElement.textContent = dataObject.maker;
+        urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
         dateElement.textContent = dataObject.date;
         //KP
         kpElement.innerHTML = kpText(dataObject.KP);
@@ -258,7 +215,6 @@ function display() {
         if (dataObject.creator) {
             creatorElement.innerHTML = '<a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
         }
-        
     }
 }
 
