@@ -148,7 +148,7 @@ function display() {
         dataObject.warcrim = sArray[scenarioID][10];
         dataObject.creator = sArray[scenarioID][11];
                 
-        titleElement.textContent = dataObject.name;
+        titleElement.textContent = change(dataObject.name, "\", ",");
         makerElement.textContent = dataObject.maker;
         urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
         dateElement.textContent = dataObject.date;
@@ -201,7 +201,7 @@ function display() {
         }
     } else {
         //シナリオ共通
-        titleElement.textContent = sArray[scenarioID][1];//name,title
+        titleElement.textContent = change(sArray[scenarioID][1], "\", ",");//name,title
         makerElement.textContent = sArray[scenarioID][2];//maker
         urlElement.innerHTML =  '<a href="'+sArray[scenarioID][3]+'" >'+sArray[scenarioID][3]+'</a>';//url,page
         
@@ -344,6 +344,15 @@ function search(array, chara) {
         }
     }
     return "#";
+}
+
+function change(text, a, b) {
+  let i = 0;
+  let length = text.length;
+  for (i=0; i < length; i++) {
+    text = text.replace(a,b); 
+  }
+  return text;
 }
    
 getCsvData('website - scenario.csv', 'character-index - driver.csv', 'character-index - manager.csv', 'character-index - boss.csv', 'character-index - spiritual.csv', 'character-index - warcrim.csv', 'character-index - creator.csv');
