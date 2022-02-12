@@ -218,7 +218,7 @@ function display() {
             dataObject.warcrim = sArray[scenarioID + j][10];
             dataObject.creator = sArray[scenarioID + j][11];
             //KP
-            let memberKP;
+            let memberKP = "";
             if (dataObject.KP.indexOf("運転手") == 0) {
                 memberKP = "driver.html";
             } else if (dataObject.KP.indexOf("管理人") == 0) {
@@ -277,7 +277,7 @@ function display() {
         //date
         dateElement.textContent = dataObject.date;
         //KP
-        let memberKP;
+        let memberKP = "";
         if (dataObject.KP.indexOf("運転手") == 0) {
             memberKP = "driver.html";
         } else if (dataObject.KP.indexOf("管理人") == 0) {
