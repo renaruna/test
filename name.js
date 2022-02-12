@@ -149,6 +149,7 @@ function display() {
         dataObject.name = sArray[scenarioID][1];
         dataObject.maker = sArray[scenarioID][2];
         dataObject.url = sArray[scenarioID][3];
+        bunki(scenarioID);
         dataObject.date = sArray[scenarioID][4];
         dataObject.KP = sArray[scenarioID][5];
         dataObject.driver = sArray[scenarioID][6];
@@ -164,23 +165,15 @@ function display() {
         dateElement.textContent = dataObject.date;
 
         //KP
-        let memberKP;
-        if (dataObject.KP.indexOf("運転手") == 0) {
-            memberKP = "driver.html";
-        } else if (dataObject.KP.indexOf("管理人") == 0) {
-            memberKP = "manager.html";
-        } else if (dataObject.KP.indexOf("上司") == 0) {
-            memberKP = "boss.html";
-        } else if (dataObject.KP.indexOf("スピリチュアルな存在。") == 0) {
-            memberKP = "spiritual.html";
-        } else if (dataObject.KP.indexOf("戦犯") == 0) {
-            memberKP = "warcrim.html";
-        } else if (dataObject.KP.indexOf("創造主") == 0) {
-            memberKP = "creator.html";
-        } else {
-            memberKP = "#";
+        let kpArray = [];
+        let kpHtml = "";
+        kpArray = dataObject.KP.split('/');
+        for (let i = 0; i < kpArray.length; i++) {
+            kpHtml += kpText(kpArray[i]);
+            kpHtml += "</p><p>";
         }
-        kpElement.innerHTML = '<a href='+memberKP+'>'+dataObject.KP+'</a>';
+        kpHtml = kpHtml.slice(0, -7);
+        kpElement.innerHTML = kpHtml;
 
         //PC
         if (dataObject.driver) {
@@ -223,22 +216,14 @@ function display() {
             dataObject.creator = sArray[scenarioID + j][11];
 
             //KP
-            let memberKP;
-            if (dataObject.KP.indexOf("運転手") == 0) {
-                memberKP = "driver.html";
-            } else if (dataObject.KP.indexOf("管理人") == 0) {
-                memberKP = "manager.html";
-            } else if (dataObject.KP.indexOf("上司") == 0) {
-                memberKP = "boss.html";
-            } else if (dataObject.KP.indexOf("スピリチュアルな存在。") == 0) {
-                memberKP = "spiritual.html";
-            } else if (dataObject.KP.indexOf("戦犯") == 0) {
-                memberKP = "warcrim.html";
-            } else if (dataObject.KP.indexOf("創造主") == 0) {
-                memberKP = "creator.html";
-            } else {
-                memberKP = "#";
+            let kpArray = [];
+            let kpHtml = "";
+            kpArray = dataObject.KP.split('/');
+            for (let i = 0; i < kpArray.length; i++) {
+                kpHtml += kpText(kpArray[i]);
+                kpHtml += "</p><p>";
             }
+            kpHtml = kpHtml.slice(0, -7);
 
             //PC
             let driver = "";
@@ -267,10 +252,10 @@ function display() {
             }
 
             //HTML
-            text += '<h2>第'+(j+1)+'陣</h2></div><div class="item"><table><tr><th>プレイした日付</th><td><p>'+dataObject.date+'</p></td></tr><tr><th>KP</th><td><p><a href='+memberKP+'>'+dataObject.KP+'</a></p></td></tr><tr><th>CAST</th><td><div><p>PC</p>'+driver+manager+boss+spiritual+warcrim+creator+'</div></td></tr></table></div><div>';
+            text += '<h2>第'+(j+1)+'陣</h2></div><div class="item"><table><tr><th>プレイした日付</th><td><p>'+dataObject.date+'</p></td></tr><tr><th>KP</th><td><p>'+kpHtml+'</p></td></tr><tr><th>CAST</th><td><div><p>PC</p>'+driver+manager+boss+spiritual+warcrim+creator+'</div></td></tr></table></div><div>';
         }
 
-        text += '<h2>第'+jin+'陣</h2>';
+        text += '<h2>第'+(j+1)+'陣</h2>';
         jinElement.innerHTML = text;
 
         let dataObject = {};
@@ -288,23 +273,15 @@ function display() {
         dateElement.textContent = dataObject.date;
 
         //KP
-        let memberKP;
-        if (dataObject.KP.indexOf("運転手") == 0) {
-            memberKP = "driver.html";
-        } else if (dataObject.KP.indexOf("管理人") == 0) {
-            memberKP = "manager.html";
-        } else if (dataObject.KP.indexOf("上司") == 0) {
-            memberKP = "boss.html";
-        } else if (dataObject.KP.indexOf("スピリチュアルな存在。") == 0) {
-            memberKP = "spiritual.html";
-        } else if (dataObject.KP.indexOf("戦犯") == 0) {
-            memberKP = "warcrim.html";
-        } else if (dataObject.KP.indexOf("創造主") == 0) {
-            memberKP = "creator.html";
-        } else {
-            memberKP = "#";
+        let kpArray = [];
+        let kpHtml = "";
+        kpArray = dataObject.KP.split('/');
+        for (let i = 0; i < kpArray.length; i++) {
+            kpHtml += kpText(kpArray[i]);
+            kpHtml += "</p><p>";
         }
-        kpElement.innerHTML = '<a href='+memberKP+'>'+dataObject.KP+'</a>';
+        kpHtml = kpHtml.slice(0, -7);
+        kpElement.innerHTML = kpHtml;
 
         //PC
         if (dataObject.driver) {
@@ -327,6 +304,27 @@ function display() {
         }
         
     }
+}
+
+function kpText(kpName) {
+    let memberKP;
+    if (kpName.indexOf("運転手") == 0) {
+        memberKP = "driver.html";
+    } else if (kpName.indexOf("管理人") == 0) {
+        memberKP = "manager.html";
+    } else if (kpName.indexOf("上司") == 0) {
+        memberKP = "boss.html";
+    } else if (kpName.indexOf("スピリチュアルな存在。") == 0) {
+        memberKP = "spiritual.html";
+    } else if (kpName.KP.indexOf("戦犯") == 0) {
+        memberKP = "warcrim.html";
+    } else if (kpName.indexOf("創造主") == 0) {
+        memberKP = "creator.html";
+    } else {
+        memberKP = "#";
+    }
+    return '<a href='+memberKP+'>'+kpName+'</a>';
+
 }
 
 function search(array, chara) {
