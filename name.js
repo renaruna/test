@@ -201,7 +201,8 @@ function display() {
         }
     } else {
         //シナリオ共通
-        titleElement.textContent = change(sArray[scenarioID][1], "\", ",");//name,title
+        let title = sArray[scenarioID][1];
+        titleElement.textContent = change(title, "\", ",");//name,title
         makerElement.textContent = sArray[scenarioID][2];//maker
         urlElement.innerHTML =  '<a href="'+sArray[scenarioID][3]+'" >'+sArray[scenarioID][3]+'</a>';//url,page
         
