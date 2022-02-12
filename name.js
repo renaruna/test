@@ -19,7 +19,6 @@ const spArray = [];
 const wcArray = [];
 const crArray = [];
 const sArray = [];
-
 //CSVファイルを読み込む
 function getCsvData(dataPathS, dataPathDr, dataPathMn, dataPathBs, dataPathSp, dataPathWc, dataPathCr) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
@@ -31,7 +30,6 @@ function getCsvData(dataPathS, dataPathDr, dataPathMn, dataPathBs, dataPathSp, d
     });
     request.open('GET', dataPathS, true);
     request.send();// HTTPリクエストの発行
-
 }
    
 function getCsvDr(dataS, dataPathDr, dataPathMn, dataPathBs, dataPathSp, dataPathWc, dataPathCr) {
@@ -45,7 +43,6 @@ function getCsvDr(dataS, dataPathDr, dataPathMn, dataPathBs, dataPathSp, dataPat
     request.open('GET', dataPathDr, true);
     request.send();// HTTPリクエストの発行
 }
-
 function getCsvMn(dataS, dataDr, dataPathMn, dataPathBs, dataPathSp, dataPathWc, dataPathCr) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
@@ -57,7 +54,6 @@ function getCsvMn(dataS, dataDr, dataPathMn, dataPathBs, dataPathSp, dataPathWc,
     request.open('GET', dataPathMn, true);
     request.send();// HTTPリクエストの発行
 }
-
 function getCsvBs(dataS, dataDr, dataMn, dataPathBs, dataPathSp, dataPathWc, dataPathCr) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
@@ -69,7 +65,6 @@ function getCsvBs(dataS, dataDr, dataMn, dataPathBs, dataPathSp, dataPathWc, dat
     request.open('GET', dataPathBs, true);
     request.send();// HTTPリクエストの発行
 }
-
 function getCsvSp(dataS, dataDr, dataMn, dataBs, dataPathSp, dataPathWc, dataPathCr) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
@@ -81,7 +76,6 @@ function getCsvSp(dataS, dataDr, dataMn, dataBs, dataPathSp, dataPathWc, dataPat
     request.open('GET', dataPathSp, true);
     request.send();// HTTPリクエストの発行
 }
-
 function getCsvWc(dataS, dataDr, dataMn, dataBs, dataSp, dataPathWc, dataPathCr) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
@@ -93,7 +87,6 @@ function getCsvWc(dataS, dataDr, dataMn, dataBs, dataSp, dataPathWc, dataPathCr)
     request.open('GET', dataPathWc, true);
     request.send();// HTTPリクエストの発行
 }
-
 function getCsvCr(dataS, dataDr, dataMn, dataBs, dataSp, dataWc, dataPathCr) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
@@ -105,7 +98,6 @@ function getCsvCr(dataS, dataDr, dataMn, dataBs, dataSp, dataWc, dataPathCr) {
     request.open('GET', dataPathCr, true);
     request.send();// HTTPリクエストの発行
 }
-
 function convertArray(dataS, dataDr, dataMn, dataBs, dataSp, dataWc, dataCr) {
     const dataStringS = dataS.split('\n');// 改行を区切り文字として行を要素とした配列を生成
     const dataStringDr = dataDr.split('\n');
@@ -140,8 +132,6 @@ function convertArray(dataS, dataDr, dataMn, dataBs, dataSp, dataWc, dataCr) {
     
     display();
 }
-
-
 function display() {
     if (jin == 0) {
         var dataObject = {};
@@ -162,18 +152,24 @@ function display() {
         makerElement.textContent = dataObject.maker;
         urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
         dateElement.textContent = dataObject.date;
-
         //KP
-        let kpArray = [];
-        let kpHtml = "";
-        kpArray = dataObject.KP.split('/');
-        for (let i = 0; i < kpArray.length; i++) {
-            kpHtml += kpText(kpArray[i]);
-            kpHtml += "</p><p>";
+        let memberKP;
+        if (dataObject.KP.indexOf("運転手") == 0) {
+            memberKP = "driver.html";
+        } else if (dataObject.KP.indexOf("管理人") == 0) {
+            memberKP = "manager.html";
+        } else if (dataObject.KP.indexOf("上司") == 0) {
+            memberKP = "boss.html";
+        } else if (dataObject.KP.indexOf("スピリチュアルな存在。") == 0) {
+            memberKP = "spiritual.html";
+        } else if (dataObject.KP.indexOf("戦犯") == 0) {
+            memberKP = "warcrim.html";
+        } else if (dataObject.KP.indexOf("創造主") == 0) {
+            memberKP = "creator.html";
+        } else {
+            memberKP = "#";
         }
-        kpHtml = kpHtml.slice(0, -7);
-        kpElement.innerHTML = kpHtml;
-
+        kpElement.innerHTML = '<a href='+memberKP+'>'+dataObject.KP+'</a>';
         //PC
         if (dataObject.driver) {
             driverElement.innerHTML = '<a href="'+search(drArray, dataObject.driver)+'">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a>';
@@ -193,14 +189,12 @@ function display() {
         if (dataObject.creator) {
             creatorElement.innerHTML = '<a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
         }
-
     } else {
         //シナリオ共通
         titleElement.textContent = sArray[scenarioID][1];//name,title
         makerElement.textContent = sArray[scenarioID][2];//maker
         urlElement.innerHTML =  '<a href="'+sArray[scenarioID][3]+'" >'+sArray[scenarioID][3]+'</a>';//url,page
         
-
         let text = "";
         for (let j = 0; j < jin - 1; j++) {
             let dataObject = {};
@@ -213,17 +207,23 @@ function display() {
             dataObject.spiritual = sArray[scenarioID + j][9];
             dataObject.warcrim = sArray[scenarioID + j][10];
             dataObject.creator = sArray[scenarioID + j][11];
-
             //KP
-            let kpArray = [];
-            let kpHtml = "";
-            kpArray = dataObject.KP.split('/');
-            for (let i = 0; i < kpArray.length; i++) {
-                kpHtml += kpText(kpArray[i]);
-                kpHtml += "</p><p>";
+            let memberKP;
+            if (dataObject.KP.indexOf("運転手") == 0) {
+                memberKP = "driver.html";
+            } else if (dataObject.KP.indexOf("管理人") == 0) {
+                memberKP = "manager.html";
+            } else if (dataObject.KP.indexOf("上司") == 0) {
+                memberKP = "boss.html";
+            } else if (dataObject.KP.indexOf("スピリチュアルな存在。") == 0) {
+                memberKP = "spiritual.html";
+            } else if (dataObject.KP.indexOf("戦犯") == 0) {
+                memberKP = "warcrim.html";
+            } else if (dataObject.KP.indexOf("創造主") == 0) {
+                memberKP = "creator.html";
+            } else {
+                memberKP = "#";
             }
-            kpHtml = kpHtml.slice(0, -7);
-
             //PC
             let driver = "";
             let manager = "";
@@ -249,14 +249,11 @@ function display() {
             if (dataObject.creator) {
                 creator = '<p><a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a></p>';
             }
-
             //HTML
-            text += '<h2>第'+(j+1)+'陣</h2>>/div><div>';
+            text += '<h2>第'+(j+1)+'陣</h2></div><div class="item"><table><tr><th>プレイした日付</th><td><p>'+dataObject.date+'</p></td></tr><tr><th>KP</th><td><p><a href='+memberKP+'>'+dataObject.KP+'</a></p></td></tr><tr><th>CAST</th><td><div><p>PC</p>'+driver+manager+boss+spiritual+warcrim+creator+'</div></td></tr></table></div><div>';
         }
-
         text += '<h2>第'+jin+'陣</h2>';
         jinElement.innerHTML = text;
-
         let dataObject = {};
         dataObject.id = sArray[scenarioID + jin - 1][0];
         dataObject.date = sArray[scenarioID + jin - 1][4];
@@ -267,21 +264,26 @@ function display() {
         dataObject.spiritual = sArray[scenarioID + jin - 1][9];
         dataObject.warcrim = sArray[scenarioID + jin - 1][10];
         dataObject.creator = sArray[scenarioID + jin - 1][11];
-
         //date
         dateElement.textContent = dataObject.date;
-
         //KP
-        let kpArray = [];
-        let kpHtml = "";
-        kpArray = dataObject.KP.split('/');
-        for (let i = 0; i < kpArray.length; i++) {
-            kpHtml += kpText(kpArray[i]);
-            kpHtml += "</p><p>";
+        let memberKP;
+        if (dataObject.KP.indexOf("運転手") == 0) {
+            memberKP = "driver.html";
+        } else if (dataObject.KP.indexOf("管理人") == 0) {
+            memberKP = "manager.html";
+        } else if (dataObject.KP.indexOf("上司") == 0) {
+            memberKP = "boss.html";
+        } else if (dataObject.KP.indexOf("スピリチュアルな存在。") == 0) {
+            memberKP = "spiritual.html";
+        } else if (dataObject.KP.indexOf("戦犯") == 0) {
+            memberKP = "warcrim.html";
+        } else if (dataObject.KP.indexOf("創造主") == 0) {
+            memberKP = "creator.html";
+        } else {
+            memberKP = "#";
         }
-        kpHtml = kpHtml.slice(0, -7);
-        kpElement.innerHTML = kpHtml;
-
+        kpElement.innerHTML = '<a href='+memberKP+'>'+dataObject.KP+'</a>';
         //PC
         if (dataObject.driver) {
             driverElement.innerHTML = '<a href="'+search(drArray, dataObject.driver)+'">'+dataObject.driver+'</a>：<a href="driver.html">運転手</a>';
@@ -304,28 +306,6 @@ function display() {
         
     }
 }
-
-function kpText(kpName) {
-    let memberKP;
-    if (kpName.indexOf("運転手") == 0) {
-        memberKP = "driver.html";
-    } else if (kpName.indexOf("管理人") == 0) {
-        memberKP = "manager.html";
-    } else if (kpName.indexOf("上司") == 0) {
-        memberKP = "boss.html";
-    } else if (kpName.indexOf("スピリチュアルな存在。") == 0) {
-        memberKP = "spiritual.html";
-    } else if (kpName.KP.indexOf("戦犯") == 0) {
-        memberKP = "warcrim.html";
-    } else if (kpName.indexOf("創造主") == 0) {
-        memberKP = "creator.html";
-    } else {
-        memberKP = "#";
-    }
-    return '<a href='+memberKP+'>'+kpName+'</a>';
-
-}
-
 function search(array, chara) {
     for (let i=0; i < array.length; i++) {
         if (array[i][1].indexOf(chara) !== -1) {
@@ -334,6 +314,6 @@ function search(array, chara) {
     }
     return "#";
 }
-
    
 getCsvData('website - scenario.csv', 'character-index - driver.csv', 'character-index - manager.csv', 'character-index - boss.csv', 'character-index - spiritual.csv', 'character-index - warcrim.csv', 'character-index - creator.csv');
+
