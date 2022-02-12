@@ -251,7 +251,7 @@ function display() {
             }
 
             //HTML
-            text += '<h2>第'+(j+1)+'陣</h2><div>';
+            text += '<h2>第'+(j+1)+'陣</h2>>/div><div>';
         }
 
         text += '<h2>第'+jin+'陣</h2>';
