@@ -149,7 +149,6 @@ function display() {
         dataObject.name = sArray[scenarioID][1];
         dataObject.maker = sArray[scenarioID][2];
         dataObject.url = sArray[scenarioID][3];
-        bunki(scenarioID);
         dataObject.date = sArray[scenarioID][4];
         dataObject.KP = sArray[scenarioID][5];
         dataObject.driver = sArray[scenarioID][6];
