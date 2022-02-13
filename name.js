@@ -148,7 +148,7 @@ function display() {
         dataObject.warcrim = sArray[scenarioID][10];
         dataObject.creator = sArray[scenarioID][11];
                 
-        titleElement.textContent = dataObject.name;
+        titleElement.textContent = change(dataObject.name, "\", ",");
         makerElement.textContent = dataObject.maker;
         urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
         dateElement.textContent = dataObject.date;
@@ -202,7 +202,7 @@ function display() {
     } else {
         //シナリオ共通
         let title = sArray[scenarioID][1];
-        titleElement.textContent = title;//name,title
+        titleElement.textContent = change(title, "\", ",");//name,title
         makerElement.textContent = sArray[scenarioID][2];//maker
         urlElement.innerHTML =  '<a href="'+sArray[scenarioID][3]+'" >'+sArray[scenarioID][3]+'</a>';//url,page
         
