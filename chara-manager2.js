@@ -1,6 +1,5 @@
 const nameElement = document.getElementById('name');
 const hiranameElement = document.getElementById('hiraname');
-const chaidElement = document.getElementById('chaid');
 const ageElement = document.getElementById('age');
 const sexElement = document.getElementById('sex');
 const jobElement = document.getElementById('job');
