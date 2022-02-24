@@ -226,6 +226,8 @@ function display() {
             dataObject.spiritual = sArray[scenarioID + j][9];
             dataObject.warcrim = sArray[scenarioID + j][10];
             dataObject.creator = sArray[scenarioID + j][11];
+            dataObject.elsepc = sArray[scenarioID + j][13];
+            
             //KP
             let memberKP;
             let kpArray = [];
@@ -280,7 +282,7 @@ function display() {
                 creator = '<p><a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a></p>';
             }
             //HTML
-            text += '<h2>第'+(j+1)+'陣</h2></div><div class="item"><table><tr><th>プレイした日付</th><td><p>'+dataObject.date+'</p></td></tr><tr><th>KP</th><td><p>'+kpHtml+'</p></td></tr><tr><th>CAST</th><td><div><p>PC</p>'+driver+manager+boss+spiritual+warcrim+creator+'</div></td></tr></table></div><div>';
+            text += '<h2>第'+(j+1)+'陣</h2></div><div class="item"><table><tr><th>プレイした日付</th><td><p>'+dataObject.date+'</p></td></tr><tr><th>KP</th><td><p>'+kpHtml+'</p></td></tr><tr><th>CAST</th><td><div><p>PC</p>'+driver+manager+boss+spiritual+warcrim+creator+'<p>'+dataObject.elsepc+'</p></div></td></tr></table></div><div>';
         }
         text += '<h2>第'+jin+'陣</h2>';
         jinElement.innerHTML = text;
@@ -294,6 +296,9 @@ function display() {
         dataObject.spiritual = sArray[scenarioID + jin - 1][9];
         dataObject.warcrim = sArray[scenarioID + jin - 1][10];
         dataObject.creator = sArray[scenarioID + jin - 1][11];
+        dataObject.elsepc = sArray[scenarioID + jin - 1][13];
+        dataObject.misc = sArray[scenarioID][16];
+        
         //date
         dateElement.textContent = dataObject.date;
         //KP
@@ -343,6 +348,8 @@ function display() {
         if (dataObject.creator) {
             creatorElement.innerHTML = '<a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
         }
+        elsepcElement.textContent = dataObject.elsepc;
+        miscElement.textContent = dataObject.misc;
         
     }
 }
