@@ -13,6 +13,7 @@ const creatorElement = document.getElementById('creatorPC');
 const elsepcElement = document.getElementById('elsePC');
 const npcElement = document.getElementById('NPC');
 const jinElement = document.getElementById('jintext');
+const miscElement = document.getElementById('misc');
 const drArray = [];
 const mnArray = [];
 const bsArray = [];
@@ -149,6 +150,7 @@ function display() {
         dataObject.warcrim = sArray[scenarioID][10];
         dataObject.creator = sArray[scenarioID][11];
         dataObject.elsepc = sArray[scenarioID][13];
+        dataObject.misc = sArray[scenarioID][16];
                 
         titleElement.textContent = change(dataObject.name, "#", ",");
         makerElement.textContent = dataObject.maker;
@@ -203,6 +205,7 @@ function display() {
             creatorElement.innerHTML = '<a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
         }
         elsepcElement.textContent = dataObject.elsepc;
+        miscElement.textContent = dataObject.misc;
         
     } else {
         //シナリオ共通
