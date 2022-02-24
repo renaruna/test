@@ -355,7 +355,7 @@ function display() {
 }
 function search(array, chara) {
     for (let i=0; i < array.length; i++) {
-        if (array[i][1].indexOf(chara) !== -1) {
+        if (chara.indexOf(array[i][1]) !== -1) {
             return array[i][29];
         }
     }
