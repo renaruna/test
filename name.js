@@ -10,6 +10,7 @@ const bossElement = document.getElementById('bossPC');
 const spiritualElement = document.getElementById('spiritualPC');
 const warcrimElement = document.getElementById('warcrimPC');
 const creatorElement = document.getElementById('creatorPC');
+const elsepcElement = document.getElementById('elsePC');
 const npcElement = document.getElementById('NPC');
 const jinElement = document.getElementById('jintext');
 const drArray = [];
@@ -147,11 +148,13 @@ function display() {
         dataObject.spiritual = sArray[scenarioID][9];
         dataObject.warcrim = sArray[scenarioID][10];
         dataObject.creator = sArray[scenarioID][11];
+        dataObject.elsepc = sArray[scenarioID][13];
                 
         titleElement.textContent = change(dataObject.name, "#", ",");
         makerElement.textContent = dataObject.maker;
         urlElement.innerHTML =  '<a href="'+dataObject.url+'" >'+dataObject.url+'</a>';
         dateElement.textContent = dataObject.date;
+        
         //KP
         let memberKP;
         let kpArray = [];
@@ -199,6 +202,8 @@ function display() {
         if (dataObject.creator) {
             creatorElement.innerHTML = '<a href="'+search(crArray, dataObject.creator)+'">'+dataObject.creator+'</a>：<a href="creator.html">創造主</a>';
         }
+        elsepcElement.textContent = dataObject.elsepc;
+        
     } else {
         //シナリオ共通
         let title = sArray[scenarioID][1];
