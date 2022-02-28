@@ -6,21 +6,19 @@
   <link rel="stylesheet" href="index.css">
     <script type="text/javascript">
       var times = 0;
-      var rpt = document.getElementById("repeat-images");
-      var dftr = rpt.getAttribute("src");
       function repeater(){
           times++;
           if(times % 2 !== 0) {
-              rpt.setAttribute("src", rpt.dataset.secondImage);
+              $('.rpt').show();
           } else {
-              rpt.setAttribute("src", dftr);
+              $('.rpt').hide();
           }
       }
     </script>
   </head>
 
     <body>
-      <img id="repeat-images" src="nefrit1.png" data-second-image="nefrit3.jpeg">
+      <img id="repeat-images" src="nefrit1.png" class="rpt">
       <input type="button" value="ボタン" onclick="repeater()">
 
 
