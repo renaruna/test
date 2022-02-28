@@ -4,8 +4,8 @@ var $home = $('.rpt');
 function repeater(){
     times++;
     if(times % 2 !== 0) {
-         $home.animate({'marginRight':'0'},500); 
+         $home.animate({'width':'50px'},500); 
     } else {
-         $home.animate({'marginRight':'380px'},500);
+         $home.animate({'width':'100px'},500);
     }
 }
