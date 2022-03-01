@@ -16,3 +16,10 @@ td {
     text-align: left;
 }
   
+p {
+    padding: 30px;
+}
+
+.back {
+    display: none;
+}
