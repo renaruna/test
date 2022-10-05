@@ -4,7 +4,6 @@
   flex-wrap: wrap; /*折り返しあり*/
   justify-content: flex-start; /*左詰め*/
   margin: 0 auto;
-  width: 1000px;
 }
 
 .item {
