@@ -9,15 +9,11 @@
 .item {
   display: inline-block;
   width: 120px;
-  height: 100px;
+  text-align: center;
 }
 
 .item img {
   width: 120px;
   margin: 0;
   cursor: pointer;
-}
-
-p {
-  test-align: center;
 }
