@@ -27,7 +27,7 @@ function getCsvC(dataS, dataPathC) {
      const response = event.target.responseText;
      convertArray(dataS, response);
     });
-    request.open('GET', datapathC, true);
+    request.open('GET', dataPathC, true);
     request.send();// HTTPリクエストの発行
 }
 
