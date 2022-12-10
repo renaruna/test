@@ -74,4 +74,4 @@ function change(text, a, b) {
   return text;
 }
    
-getCsvData('index.csv', 'test.csv'); // s 調べる側, c 調べられる側　 test から indexを含むものを探す
+getCsvS('index.csv', 'test.csv'); // s 調べる側, c 調べられる側　 test から indexを含むものを探す
