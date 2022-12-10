@@ -1,7 +1,7 @@
 const nanaElement = document.getElementById('nana');//id
 const array = [];
 
-function getCsvCr(datapath) {
+function getCsvData(datapath) {
     const request = new XMLHttpRequest();// HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     
     // レスポンスが返ってきたらconvertArray()を呼ぶ	
