@@ -50,17 +50,26 @@ function display() {
            
     var dataObject = {};
     dataObject.manager = sArray[1][7]; //ニーフリット
+    
     naElement.textContent = dataObject.manager; //ニーフリット
     niElement.textContent = cArray[1][2]; //ニーフリット
     nuElement.textContent = search(cArray, dataObject.manager); // character/manager/Nefrit.html
-    //neElement.textContent = search(sArray, "山田");
-    //noElement.textContent = search(sArray, "山田");
+    neElement.textContent = truth(cArray, dataObject.manager); // 0
+    noElement.textContent = truthness(cArray, dataObject.manager); // True
         
+}
+
+function truth(array, chara) {
+    return chara.indexOf(array[1][2])
+}
+
+function truthness(array, chara) {
+    return chara.indexOf(array[1][2]) !== -1
 }
   
 function search(array, chara) {
     for (let i=0; i < array.length; i++) {
-        if (chara.indexOf(array[i][2]) == 0) {
+        if (chara.indexOf(array[i][2]) !== -1) {
             return array[i][1];
         }
     }
