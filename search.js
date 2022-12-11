@@ -3,6 +3,17 @@ const niElement = document.getElementById('ni');
 const nuElement = document.getElementById('nu');
 const neElement = document.getElementById('ne');
 const noElement = document.getElementById('no');
+const haElement = document.getElementById('ha');
+const hiElement = document.getElementById('hi');
+const huElement = document.getElementById('hu');
+const heElement = document.getElementById('he');
+const hoElement = document.getElementById('ho');
+const maElement = document.getElementById('ma');
+const miElement = document.getElementById('mi');
+const muElement = document.getElementById('mu');
+const meElement = document.getElementById('me');
+const moElement = document.getElementById('mo');
+const yaElement = document.getElementById('ya');
 
 const sArray = [];
 const cArray = [];
@@ -53,9 +64,20 @@ function display() {
     
     naElement.textContent = dataObject.manager; //ニーフリット
     niElement.textContent = cArray[1][2]; //ニーフリット
-    nuElement.textContent = search(cArray, dataObject.manager); // character/manager/Nefrit.html
-    neElement.textContent = truth(cArray, dataObject.manager); // 0
-    noElement.textContent = truthness(cArray, dataObject.manager); // True
+    nuElement.textContent = dataObject.manager.charCodeAt(0); //に
+    neElement.textContent = dataObject.manager.charCodeAt(1); //ー
+    noElement.textContent = dataObject.manager.charCodeAt(2); //ふ
+    haElement.textContent = dataObject.manager.charCodeAt(3); //り
+    hiElement.textContent = dataObject.manager.charCodeAt(4); //っ
+    huElement.textContent = dataObject.manager.charCodeAt(5); //と
+    heElement.textContent = dataObject.manager.charCodeAt(6); //NaN
+    hoElement.textContent = cArray[1][2].charCodeAt(0); //
+    maElement.textContent = cArray[1][2].charCodeAt(1); //
+    miElement.textContent = cArray[1][2].charCodeAt(2); //
+    muElement.textContent = cArray[1][2].charCodeAt(3); //
+    meElement.textContent = cArray[1][2].charCodeAt(4); //
+    moElement.textContent = cArray[1][2].charCodeAt(5); //
+    yaElement.textContent = cArray[1][2].charCodeAt(6); //
         
 }
 
