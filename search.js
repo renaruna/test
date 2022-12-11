@@ -64,7 +64,7 @@ function display() {
     
     let kp = "";
     for (let i = 1; i < sArray.length; i++) {
-        if ((sArray[i][5]).indexOf("管理人") !== -1) {
+        if (sArray[i][5].indexOf("管理人") !== -1) {
             if (sArray[i][0]) {
                 kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
             }
