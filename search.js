@@ -63,8 +63,9 @@ function display() {
     dataObject.manager = sArray[1][7]; //ニーフリット
     
     let kp = "";
-    for (let i = 1; i < sArray.length; i++) {
-        if (sArray[i][5].indexOf("管理人") !== -1) {
+    for (let i = 1; i < 14; i++) {
+        let kpName = sArray[i][5];
+        if (kpName.indexOf("管理人") !== -1) {
             if (sArray[i][0]) {
                 kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
             }
@@ -73,7 +74,7 @@ function display() {
     
     naElement.innerHTML = kp; //kpしたやつ一覧
     niElement.textContent = cArray[1][2]; //ニーフリット
-    nuElement.textContent = search(cArray, dataObject.manager); // character/manager/Nefrit.html
+    nuElement.textContent = kpName; // 管理人
     neElement.textContent = truth(cArray, dataObject.manager); // 0
     noElement.textContent = truthness(cArray, dataObject.manager); // True
     haElement.textContent = dataObject.manager.charCodeAt(3); //り
