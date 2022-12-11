@@ -47,10 +47,12 @@ function convertArray(dataS, dataC) {
     display();
 }
 function display() {
-                
-    naElement.textContent = search(sArray, cArray[3][0]); //38
-    niElement.textContent = cArray[1][0].indexOf(sArray[1][0]); //0
-    //nuElement.textContent = search(sArray, "山田");
+           
+    var dataObject = {};
+    dataObject.manager = sArray[1][7]; //ニーフリット
+    naElement.textContent = dataObject.manager; //ニーフリット
+    niElement.textContent = cArray[1][2]; //ニーフリット
+    nuElement.textContent = search(cArray, dataObject.manager); // character/manager/Nefrit.html
     //neElement.textContent = search(sArray, "山田");
     //noElement.textContent = search(sArray, "山田");
         
@@ -58,8 +60,8 @@ function display() {
   
 function search(array, chara) {
     for (let i=0; i < array.length; i++) {
-        if (chara.indexOf(array[i][0]) !== -1) {
-            return array[i][2];
+        if (chara.indexOf(array[i][2]) == 0) {
+            return array[i][1];
         }
     }
     return "#";
@@ -74,4 +76,4 @@ function change(text, a, b) {
   return text;
 }
    
-getCsvS('index.csv', 'test.csv'); // s 調べる側, c 調べられる側　 test から indexを含むものを探す
+getCsvS('website - scenario.csv', 'website - manager.csv'); // s 調べる側, c 調べられる側　 test から indexを含むものを探す
