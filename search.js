@@ -62,7 +62,16 @@ function display() {
     var dataObject = {};
     dataObject.manager = sArray[1][7]; //ニーフリット
     
-    naElement.textContent = dataObject.manager; //ニーフリット
+    let kp = "";
+    for (let i = 1; i < sArray.length; i++) {
+        if ((sArray[i][5]).indexOf("管理人") !== -1) {
+            if (sArray[i][0]) {
+                kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
+            }
+        }
+    }
+    
+    naElement.innerHTML = kp; //kpしたやつ一覧
     niElement.textContent = cArray[1][2]; //ニーフリット
     nuElement.textContent = search(cArray, dataObject.manager); // character/manager/Nefrit.html
     neElement.textContent = truth(cArray, dataObject.manager); // 0
@@ -107,4 +116,4 @@ function change(text, a, b) {
   return text;
 }
    
-getCsvS('website - scenario.csv', 'website - manager.csv'); // s 調べる側, c 調べられる側　 test から indexを含むものを探す
+getCsvS('website - scenario.csv', 'website - manager.csv'); // s 調べる側, c 調べられる側
