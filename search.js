@@ -64,9 +64,9 @@ function display() {
     
     naElement.textContent = dataObject.manager; //ニーフリット
     niElement.textContent = cArray[1][2]; //ニーフリット
-    nuElement.textContent = dataObject.manager.charCodeAt(0); //に
-    neElement.textContent = dataObject.manager.charCodeAt(1); //ー
-    noElement.textContent = dataObject.manager.charCodeAt(2); //ふ
+    nuElement.textContent = search(cArray, dataObject.manager); // character/manager/Nefrit.html
+    neElement.textContent = truth(cArray, dataObject.manager); // 0
+    noElement.textContent = truthness(cArray, dataObject.manager); // True
     haElement.textContent = dataObject.manager.charCodeAt(3); //り
     hiElement.textContent = dataObject.manager.charCodeAt(4); //っ
     huElement.textContent = dataObject.manager.charCodeAt(5); //と
