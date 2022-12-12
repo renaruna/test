@@ -62,18 +62,21 @@ function display() {
     var dataObject = {};
     dataObject.manager = sArray[1][7]; //ニーフリット
     
-    let kp = "";
+    let htmlPL = "";
 
     for (let i = 1; i < sArray.length; i++) {
-        let kpName = sArray[i][5];
-        if (kpName && sArray[i][0]) { // kp欄になにかしら入ってる　かつ　IDがある。
-            if (kpName.indexOf("管理人") !== -1) {
-                kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
-            }
+        if (sArray[i][7]) {
+            let sPL = "";
+            let cPL = "";
+            let j = searchPL(sArray[i][7]);
+                        
+            sPL = '<a class="sPL" href="../scenario/'+sArray[i][12]+'"><h4>'+change(sArray[i][1], "#", ",")+'</h4></a>';
+            cPL = '<a class="cPL" href="../'+cArray[j][1]+'"><img src="../character/manager/'+cArray[j][2]+'.png"><p>'+sArray[i][7]+'</p></a>';
+            htmlPL += '<div class="htmlPL">'+sPL+cPL+'</div>';
         }
     }
     
-    naElement.innerHTML = kp; //kpしたやつ一覧
+    naElement.innerHTML = htmlPL; //plしたやつ一覧
     //niElement.textContent = index1; //
     //nuElement.textContent = kpName2; // 
     //neElement.textContent = index2; // 
@@ -98,6 +101,15 @@ function truth(array, chara) {
 
 function truthness(array, chara) {
     return chara.indexOf(array[1][2]) !== -1
+}
+
+function searchPL(chara) {
+    for (let j=0; j < cArray.length; j++) {
+        if (chara.indexOf(cArray[j][2]) !== -1) {
+            return j;
+        }
+    }
+    return 0;
 }
   
 function search(array, chara) {
