@@ -63,7 +63,7 @@ function display() {
     dataObject.manager = sArray[1][7]; //ニーフリット
     
     let kp = "";
-    for (let i = 1; i < 148; i++) {
+    for (let i = 1; i < 145; i++) {
         let kpName = sArray[i][5];
         if (kpName.indexOf("管理人") !== -1) {
             if (sArray[i][0]) {
