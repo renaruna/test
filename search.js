@@ -74,7 +74,7 @@ function display() {
     
     naElement.innerHTML = kp; //kpしたやつ一覧
     niElement.textContent = cArray[1][2]; //ニーフリット
-    nuElement.textContent = kpName; // 管理人
+    nuElement.textContent = dataObject.manager; // 管理人
     neElement.textContent = truth(cArray, dataObject.manager); // 0
     noElement.textContent = truthness(cArray, dataObject.manager); // True
     haElement.textContent = dataObject.manager.charCodeAt(3); //り
