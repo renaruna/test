@@ -63,57 +63,33 @@ function display() {
     dataObject.manager = sArray[1][7]; //ニーフリット
     
     let kp = "";
-    
-    let kpName1 = sArray[141][5];
-    let index1 = kpName1.indexOf("管理人");
-    
-    let kpName2 = sArray[142][5];
-    let index2 = kpName2.indexOf("管理人");
-    
-    let kpName3 = sArray[143][5];
-    let index3 = 0;
-    
-    let kpName4 = sArray[146][5];
-    let index4 = kpName4.indexOf("管理人");
-    
-    let kpName5 = sArray[147][5];
-    let index5 = kpName5.indexOf("管理人");
-    
-    let kpName6 = sArray[148][5];
-    let index6 = kpName6.indexOf("管理人");
-    
-    let kpName7 = sArray[149][5];
-    let index7 = kpName7.indexOf("管理人");
-    
-    let kpName8 = sArray[150][5];
-    let index8 = kpName8.indexOf("管理人");
-    
 
-    //for (let i = 1; i < 145; i++) {
-      //  let kpName = sArray[i][5];
-        //if (kpName.indexOf("管理人") !== -1) {
-          //  if (sArray[i][0]) {
-            //    kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
-            //}
-        //}
-    //}
+    for (let i = 1; i < sArray.length; i++) {
+        let kpName = sArray[i][5];
+        if (kpName && sArray[i][0]) { // kp欄になにかしら入ってる　かつ　IDがある。
+            if (kpName.indexOf("管理人") !== -1) {
+                kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
+                }
+            }
+        }
+    }
     
-    naElement.textContent = kpName1; //kpしたやつ一覧
-    niElement.textContent = index1; //
-    nuElement.textContent = kpName2; // 
-    neElement.textContent = index2; // 
-    noElement.textContent = kpName3; //
-    haElement.textContent = index3; //
-    hiElement.textContent = kpName4; //
-    huElement.textContent = index4; //
-    heElement.textContent = kpName5; //
-    hoElement.textContent = index5; //
-    maElement.textContent = kpName6; //
-    miElement.textContent = index6; //
-    muElement.textContent = kpName7; //
-    meElement.textContent = index7; //
-    moElement.textContent = kpName8; //
-    yaElement.textContent = index8; //
+    naElement.textContent = kp; //kpしたやつ一覧
+    //niElement.textContent = index1; //
+    //nuElement.textContent = kpName2; // 
+    //neElement.textContent = index2; // 
+    //noElement.textContent = kpName3; //
+    //haElement.textContent = index3; //
+    //hiElement.textContent = kpName4; //
+    //huElement.textContent = index4; //
+    //heElement.textContent = kpName5; //
+    //hoElement.textContent = index5; //
+    //maElement.textContent = kpName6; //
+    //miElement.textContent = index6; //
+    //muElement.textContent = kpName7; //
+    //meElement.textContent = index7; //
+    //moElement.textContent = kpName8; //
+    //yaElement.textContent = index8; //
         
 }
 
