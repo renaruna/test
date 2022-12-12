@@ -71,7 +71,7 @@ function display() {
     let index2 = kpName2.indexOf("管理人");
     
     let kpName3 = sArray[143][5];
-    let index3 = kpName3.indexOf("管理人");
+    let index3 = 0;
     
     let kpName4 = sArray[146][5];
     let index4 = kpName4.indexOf("管理人");
