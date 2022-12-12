@@ -69,7 +69,6 @@ function display() {
         if (kpName && sArray[i][0]) { // kp欄になにかしら入ってる　かつ　IDがある。
             if (kpName.indexOf("管理人") !== -1) {
                 kp += '<a href="../scenario/'+sArray[i][12]+'">'+change(sArray[i][1], "#", ",")+'</a><br>';
-                }
             }
         }
     }
