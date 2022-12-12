@@ -64,28 +64,28 @@ function display() {
     
     let kp = "";
     
-    let kpName1 = sArray[44][5];
+    let kpName1 = sArray[141][5];
     let index1 = kpName1.indexOf("管理人");
     
-    let kpName2 = sArray[45][5];
+    let kpName2 = sArray[142][5];
     let index2 = kpName2.indexOf("管理人");
     
-    let kpName3 = sArray[46][5];
+    let kpName3 = sArray[143][5];
     let index3 = kpName3.indexOf("管理人");
     
-    let kpName4 = sArray[78][5];
+    let kpName4 = sArray[146][5];
     let index4 = kpName4.indexOf("管理人");
     
-    let kpName5 = sArray[79][5];
+    let kpName5 = sArray[147][5];
     let index5 = kpName5.indexOf("管理人");
     
-    let kpName6 = sArray[80][5];
+    let kpName6 = sArray[148][5];
     let index6 = kpName6.indexOf("管理人");
     
-    let kpName7 = sArray[144][5];
+    let kpName7 = sArray[149][5];
     let index7 = kpName7.indexOf("管理人");
     
-    let kpName8 = sArray[145][5];
+    let kpName8 = sArray[150][5];
     let index8 = kpName8.indexOf("管理人");
     
 
