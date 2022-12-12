@@ -73,7 +73,7 @@ function display() {
         }
     }
     
-    naElement.textContent = kp; //kpしたやつ一覧
+    naElement.innerHTML = kp; //kpしたやつ一覧
     //niElement.textContent = index1; //
     //nuElement.textContent = kpName2; // 
     //neElement.textContent = index2; // 
